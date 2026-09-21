@@ -9,6 +9,10 @@ Contacts across large organizations
   <a href="https://github.com/ramincsy/ramioo-showcase"><img src="https://img.shields.io/badge/ramioo-showcase-hub-111827?style=for-the-badge" alt="hub" /></a>
 </p>
 
+<p>
+  <a href="https://www.ramioo.com/projects/enterprise-directory"><img src="docs/card.jpg" alt="Enterprise directory" width="860" /></a>
+</p>
+
 <p><a href="https://www.ramioo.com/projects/enterprise-directory">https://www.ramioo.com/projects/enterprise-directory</a></p>
 
 </div>
