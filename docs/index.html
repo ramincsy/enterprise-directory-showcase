@@ -1,27 +1,275 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>Enterprise Directory | ramioo</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet"/>
-<style>
-:root{--bg:#07090d;--card:#121826;--line:#1e2738;--text:#eef2f8;--m:#93a0b5;--a:#34d399}
-*{box-sizing:border-box}body{margin:0;font-family:Inter,system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
-a{color:var(--a)}.w{width:min(960px,calc(100% - 32px));margin:auto}
-header{padding:72px 0 40px;border-bottom:1px solid var(--line);background:#0c1018}
-.k{color:var(--a);font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-weight:600}
-h1{font-size:clamp(26px,4vw,40px);margin:12px 0}p.l{color:var(--m);max-width:60ch}
-.b{display:inline-block;margin:8px 8px 0 0;padding:8px 14px;border-radius:999px;border:1px solid var(--line);background:var(--card);color:var(--text);text-decoration:none;font-size:13px;font-weight:600}
-section{padding:40px 0}.g{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
-.c{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px}.c h3{margin:0 0 6px;font-size:15px}.c p{margin:0;color:var(--m);font-size:13px}
-img{max-width:100%;border-radius:12px;margin-top:20px;border:1px solid var(--line)}
-footer{padding:32px 0 48px;color:var(--m);font-size:13px;border-top:1px solid var(--line)}
-</style></head><body>
-<header><div class="w"><div class="k">Enterprise</div><h1>Enterprise Directory</h1><p class="l">Organization-wide contacts directory with search for large orgs.</p>
-<a class="b" href="https://www.ramioo.com/contact">Contact</a>
-<a class="b" href="https://ramincsy.github.io/ramioo-showcase/">Hub</a>
-</div></header>
-<section><div class="w"><h2>Focus</h2><div class="g"><div class="c"><h3>Directory</h3><p>Org-wide phone book.</p></div><div class="c"><h3>Search</h3><p>Fast lookup.</p></div><div class="c"><h3>Staff UI</h3><p>Day-to-day operations.</p></div><div class="c"><h3>Portfolio</h3><p>Part of ramioo software.</p></div></div>
-<img src="card.jpg" alt="Enterprise Directory"/>
-<p class="l" style="margin-top:16px">Public product window — source stays private.</p>
-</div></section>
-<footer><div class="w"><a href="https://www.ramioo.com">ramioo.com</a> · ramincsywork@gmail.com</div></footer>
-</body></html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Enterprise Directory — Catalog | دفترچه تلفن سازمانی · ramioo</title>
+  <meta name="description" content="Bilingual (EN/FA) product catalog for Enterprise Directory — demo data only. Organizational phonebook + admin console." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Vazirmatn:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #ffffff; --bg2: #f7f7f7; --card: #ffffff; --line: #e5e5e5;
+      --text: #111111; --muted: #666666; --accent: #111111; --dim: rgba(0,0,0,.06);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, Vazirmatn, system-ui, sans-serif;
+      background: var(--bg); color: var(--text);
+      font-size: 15px; line-height: 1.65; -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--text); text-decoration: underline; text-underline-offset: 3px; }
+    img { max-width: 100%; display: block; }
+    .wrap { width: min(1100px, calc(100% - 40px)); margin-inline: auto; }
+    .fa { font-family: Vazirmatn, Inter, sans-serif; direction: rtl; }
+    header.hero {
+      padding: 88px 0 56px; border-bottom: 1px solid var(--line); background: var(--bg2);
+    }
+    .lang { display: inline-flex; gap: 8px; margin: 0 0 20px; }
+    .lang span {
+      border: 1px solid var(--line); padding: 4px 10px; border-radius: 999px;
+      font-size: 11px; letter-spacing: .08em; text-transform: uppercase; font-weight: 600;
+    }
+    .lang .on { background: #111; color: #fff; border-color: #111; }
+    .kicker { color: var(--muted); font-size: 11px; letter-spacing: .2em; font-weight: 600; text-transform: uppercase; margin: 0 0 14px; }
+    h1 { font-size: clamp(28px, 4vw, 42px); line-height: 1.15; margin: 0 0 10px; font-weight: 700; letter-spacing: -.03em; max-width: 18ch; }
+    h1.fa { max-width: 22ch; margin-top: 6px; font-size: clamp(24px, 3.4vw, 34px); color: #222; }
+    .lede { color: var(--muted); font-size: 16px; max-width: 720px; margin: 0 0 10px; }
+    .lede.fa { direction: rtl; margin-bottom: 28px; }
+    .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+    .stat { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 16px; }
+    .stat b { display: block; font-size: 20px; font-weight: 700; }
+    .stat span { color: var(--muted); font-size: 12px; display: block; margin-top: 4px; }
+    .stat span.fa { direction: rtl; }
+    nav.toc {
+      position: sticky; top: 0; z-index: 20; background: rgba(255,255,255,.92);
+      border-bottom: 1px solid var(--line); backdrop-filter: blur(12px);
+    }
+    nav.toc .wrap { display: flex; gap: 8px; flex-wrap: wrap; padding: 12px 0; align-items: center; }
+    .chip {
+      border: 1px solid var(--line); background: #fff; color: var(--text);
+      padding: 7px 14px; font: inherit; font-size: 12.5px; font-weight: 500;
+      cursor: pointer; border-radius: 999px;
+    }
+    .chip:hover, .chip.is-on { background: #111; color: #fff; border-color: #111; }
+    a.chip { text-decoration: none; display: inline-flex; }
+    .gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; padding: 36px 0 20px; }
+    .tile {
+      background: var(--card); border: 1px solid var(--line); overflow: hidden;
+      border-radius: 14px; color: inherit; text-decoration: none;
+      transition: transform .2s, box-shadow .2s;
+    }
+    .tile:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(0,0,0,.08); }
+    .tile img { height: 160px; width: 100%; object-fit: cover; object-position: top; border-bottom: 1px solid var(--line); }
+    .tile .meta { padding: 14px 16px 16px; }
+    .tile .tag { color: var(--muted); font-size: 10px; font-weight: 700; letter-spacing: .14em; }
+    .tile h3 { margin: 6px 0 2px; font-size: 15px; }
+    .tile h3.fa { margin: 0 0 6px; font-size: 14px; color: #333; direction: rtl; }
+    .tile p { margin: 0; color: var(--muted); font-size: 12.5px; }
+    .tile p.fa { direction: rtl; margin-top: 4px; }
+    section.mod { padding: 64px 0; border-top: 1px solid var(--line); }
+    .mod h2 { font-size: 24px; margin: 0 0 4px; font-weight: 700; letter-spacing: -.02em; }
+    .mod h2.fa { font-size: 20px; color: #333; margin: 0 0 12px; direction: rtl; font-weight: 600; }
+    .mod .why { color: var(--muted); margin: 0 0 8px; max-width: 760px; }
+    .mod .why.fa { direction: rtl; margin-bottom: 24px; }
+    .shot { border: 1px solid var(--line); border-radius: 14px; overflow: hidden; background: #fff; }
+    .note { margin-top: 14px; color: var(--muted); font-size: 13px; border-left: 3px solid #111; padding-left: 12px; }
+    .note.fa { border-left: none; border-right: 3px solid #111; padding-left: 0; padding-right: 12px; direction: rtl; margin-top: 8px; }
+    .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+    .card { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 18px 16px; }
+    .card h3 { margin: 0 0 4px; font-size: 15px; }
+    .card h3.fa { margin: 0 0 8px; font-size: 14px; color: #333; direction: rtl; }
+    .card p { margin: 0; color: var(--muted); font-size: 13px; }
+    .card p.fa { direction: rtl; margin-top: 6px; }
+    .pillrow { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 24px; }
+    .pill { border: 1px solid var(--line); border-radius: 999px; padding: 6px 12px; font-size: 12px; color: #333; background: #fff; }
+    footer { border-top: 1px solid var(--line); padding: 36px 0 56px; color: var(--muted); font-size: 13px; background: var(--bg2); }
+    footer .fa { direction: rtl; margin-top: 6px; }
+    .demo-banner {
+      background: #111; color: #fff; text-align: center; padding: 10px 16px; font-size: 12.5px; font-weight: 500;
+    }
+    .demo-banner .fa { display: inline; direction: rtl; margin-right: 8px; opacity: .85; }
+    @media (max-width: 900px) {
+      .stats, .gallery, .cards { grid-template-columns: 1fr 1fr; }
+      h1, h1.fa { max-width: none; }
+    }
+    @media (max-width: 560px) {
+      .stats, .gallery, .cards { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="demo-banner">
+    Demo data only — fictional people, companies, and numbers
+    <span class="fa">· فقط دادهٔ نمایشی — نام، شرکت و شماره ساختگی</span>
+  </div>
+
+  <header class="hero">
+    <div class="wrap">
+      <div class="lang"><span class="on">EN</span><span class="on">FA</span><span>B/W</span></div>
+      <p class="kicker">Enterprise Directory · Org phonebook · Admin · PWA</p>
+      <h1>Holding-scale contacts — search, dial, govern</h1>
+      <h1 class="fa">مخاطبین در مقیاس هلدینگ — جستجو، تماس، مدیریت</h1>
+      <p class="lede">
+        Bilingual organizational phonebook for multi-company holdings: fast staff lookup on the front,
+        and an admin console for companies, people, visibility, Excel import, backups, announcements,
+        usage monitoring, and 2FA. Screens below use <strong>demo data only</strong> — no real org identity.
+      </p>
+      <p class="lede fa">
+        دفترچه تلفن سازمانی دوزبانه برای هلدینگ‌های چندشرکتی: جستجوی سریع همکاران در سمت کاربر،
+        و پنل ادمین برای شرکت‌ها، افراد، نمایش/مخفی‌سازی، واردسازی اکسل، بکاپ، اطلاعیه‌ها،
+        مانیتورینگ مصرف و احراز هویت دو مرحله‌ای. تصاویر زیر فقط با <strong>دادهٔ نمایشی</strong> ساخته شده‌اند.
+      </p>
+      <div class="stats">
+        <div class="stat"><b>12</b><span>Demo companies</span><span class="fa">شرکت نمونه</span></div>
+        <div class="stat"><b>480</b><span>Demo identities</span><span class="fa">هویت نمایشی</span></div>
+        <div class="stat"><b>2FA</b><span>Authenticator + codes</span><span class="fa">آتنتیکیتور + کد بازیابی</span></div>
+        <div class="stat"><b>EN / FA</b><span>Bilingual UI fields</span><span class="fa">فیلدهای دوزبانه</span></div>
+      </div>
+    </div>
+  </header>
+
+  <nav class="toc">
+    <div class="wrap">
+      <button class="chip is-on" data-filter="all" type="button">All / همه</button>
+      <button class="chip" data-filter="staff" type="button">Staff / کاربری</button>
+      <button class="chip" data-filter="admin" type="button">Admin / ادمین</button>
+      <button class="chip" data-filter="sec" type="button">Security / امنیت</button>
+      <a class="chip" href="#stack">Capabilities / قابلیت‌ها</a>
+    </div>
+  </nav>
+
+  <div class="wrap">
+    <div class="gallery" id="gallery">
+      <a class="tile" data-cat="staff" href="#m-dir"><img src="shots/01-directory.jpg" alt="Demo staff directory" /><div class="meta"><div class="tag">STAFF · کاربری</div><h3>Contact cards</h3><h3 class="fa">کارت‌های مخاطب</h3><p>Search, filters, extension-first cards</p><p class="fa">جستجو، فیلتر، تمرکز روی داخلی</p></div></a>
+      <a class="tile" data-cat="admin" href="#m-login"><img src="shots/02-admin-login.jpg" alt="Demo admin login" /><div class="meta"><div class="tag">ADMIN · ادمین</div><h3>Admin sign-in</h3><h3 class="fa">ورود پنل مدیریت</h3><p>Separate operator surface + 2FA ready</p><p class="fa">سطح جدا برای اپراتور + آمادگی ۲FA</p></div></a>
+      <a class="tile" data-cat="admin" href="#m-dash"><img src="shots/03-admin-dash.jpg" alt="Demo admin dashboard" /><div class="meta"><div class="tag">ADMIN · ادمین</div><h3>Ops dashboard</h3><h3 class="fa">داشبورد عملیات</h3><p>Companies, users, active/hidden KPIs</p><p class="fa">شاخص شرکت، کاربر، فعال/مخفی</p></div></a>
+    </div>
+  </div>
+
+  <section class="mod" id="m-dir">
+    <div class="wrap">
+      <h2>Staff directory — find the extension first</h2>
+      <h2 class="fa">دفترچه کاربری — اول داخلی را پیدا کن</h2>
+      <p class="why">RTL/LTR bilingual labels, company &amp; department filters, search by name/dept/email, dark-mode toggle in product, and cards centered on internal extensions. Email/mobile actions honor per-person visibility flags.</p>
+      <p class="why fa">برچسب‌های دوزبانه، فیلتر شرکت و بخش، جستجو با نام/بخش/ایمیل، و کارت‌هایی که داخلی را برجسته می‌کنند. اکشن ایمیل و موبایل تابع تنظیم نمایش هر فرد است.</p>
+      <div class="shot"><img src="shots/01-directory.jpg" alt="Demo organizational directory" loading="lazy" /></div>
+      <p class="note">Fictional demo people &amp; companies (Northwind, Contoso, Fabrikam) — not a real tenant.</p>
+      <p class="note fa">اشخاص و شرکت‌های ساختگی برای کاتالوگ — مربوط به هیچ مستأجر واقعی نیست.</p>
+    </div>
+  </section>
+
+  <section class="mod" id="m-login">
+    <div class="wrap">
+      <h2>Admin login — operators only</h2>
+      <h2 class="fa">ورود ادمین — فقط اپراتورها</h2>
+      <p class="why">A dedicated management entry so callers never land on governance tools. Product supports Authenticator 2FA and recovery codes.</p>
+      <p class="why fa">ورود جداگانه برای مدیریت تا همکاران روزمره وارد ابزار حاکمیتی نشوند. محصول از ۲FA و کد بازیابی پشتیبانی می‌کند.</p>
+      <div class="shot"><img src="shots/02-admin-login.jpg" alt="Demo admin login" loading="lazy" /></div>
+    </div>
+  </section>
+
+  <section class="mod" id="m-dash">
+    <div class="wrap">
+      <h2>Admin dashboard — holding health at a glance</h2>
+      <h2 class="fa">داشبورد ادمین — وضعیت هلدینگ در یک نگاه</h2>
+      <p class="why">KPIs for companies, total users, active vs hidden, plus quick tiles into company / user / admin management. Activity feed shows demo 2FA logins, imports, and backups.</p>
+      <p class="why fa">شاخص شرکت‌ها، کاربران، فعال در برابر مخفی، به‌همراه میانبر مدیریت شرکت/کاربر/ادمین. فید فعالیت ورود ۲FA، واردسازی و بکاپ نمایشی را نشان می‌دهد.</p>
+      <div class="shot"><img src="shots/03-admin-dash.jpg" alt="Demo admin dashboard" loading="lazy" /></div>
+      <p class="note">Sidebar: monitoring, announcements, backup/restore, Excel import, security, visual theme, Super Admin.</p>
+      <p class="note fa">سایدبار: مانیتورینگ، اطلاعیه، بکاپ/بازیابی، واردسازی اکسل، امنیت، تم بصری، سوپرادمین.</p>
+    </div>
+  </section>
+
+  <section class="mod" id="stack">
+    <div class="wrap">
+      <h2>Capabilities / قابلیت‌ها</h2>
+      <h2 class="fa">نقشهٔ قابلیت محصول</h2>
+      <div class="pillrow">
+        <span class="pill">Multi-company + prefix / چندشرکتی + پیش‌شماره</span>
+        <span class="pill">Hide mobile &amp; email / مخفی‌سازی</span>
+        <span class="pill">Excel / CSV import</span>
+        <span class="pill">Duplicate merge / ادغام تکراری</span>
+        <span class="pill">JSON backup &amp; restore</span>
+        <span class="pill">Announcements / اطلاعیه</span>
+        <span class="pill">Usage monitoring</span>
+        <span class="pill">2FA + recovery</span>
+        <span class="pill">EN + FA fields</span>
+        <span class="pill">PWA</span>
+      </div>
+      <div class="cards">
+        <div class="card">
+          <h3>Directory (staff)</h3>
+          <h3 class="fa">دفترچه (کاربری)</h3>
+          <p>Search, filters, extension cards, quick email/mobile, theme &amp; language toggles.</p>
+          <p class="fa">جستجو، فیلتر، کارت داخلی، تماس سریع، تغییر تم و زبان.</p>
+        </div>
+        <div class="card">
+          <h3>Governance (admin)</h3>
+          <h3 class="fa">حاکمیت (ادمین)</h3>
+          <p>Companies, employees, admins, activity, announcements, import, backup/restore, visual settings.</p>
+          <p class="fa">شرکت، کارمند، ادمین، فعالیت، اطلاعیه، واردسازی، بکاپ، تنظیمات بصری.</p>
+        </div>
+        <div class="card">
+          <h3>Security</h3>
+          <h3 class="fa">امنیت</h3>
+          <p>Password policy, Authenticator 2FA, recovery codes, Super Admin gates, audit trail.</p>
+          <p class="fa">سیاست رمز، ۲FA، کد بازیابی، محدودیت سوپرادمین، ردپای ممیزی.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="mod" id="compare">
+    <div class="wrap">
+      <h2>Where it sits / جایگاه</h2>
+      <div class="cards">
+        <div class="card">
+          <h3>vs. shared Excel</h3>
+          <h3 class="fa">در برابر اکسل اشتراکی</h3>
+          <p>Always-current extensions with visibility controls — no stale chat attachments.</p>
+          <p class="fa">داخلی همیشه به‌روز با کنترل نمایش — بدون فایل کهنه در چت.</p>
+        </div>
+        <div class="card">
+          <h3>vs. generic CRM</h3>
+          <h3 class="fa">در برابر CRM عمومی</h3>
+          <p>Built for internal dialing: company prefix and extension-first cards.</p>
+          <p class="fa">برای شماره‌گیری داخلی: پیش‌شماره شرکت و کارت محورِ داخلی.</p>
+        </div>
+        <div class="card">
+          <h3>vs. AD-only lookup</h3>
+          <h3 class="fa">در برابر جستجوی صرف AD</h3>
+          <p>Friendly PWA for every colleague, with Persian UX and admin tooling beside the book.</p>
+          <p class="fa">PWA دوستانه برای همه همکاران، با UX فارسی و ابزار ادمین کنار دفترچه.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">
+      <p>Black &amp; white bilingual catalog · demo identities only · product window — source stays private.</p>
+      <p class="fa">کاتالوگ سیاه‌وسفید دوزبانه · فقط هویت نمایشی · ویترین محصول — سورس خصوصی می‌ماند.</p>
+      <p style="margin-top:12px">© ramioo · <a href="https://www.ramioo.com">ramioo.com</a> · <a href="https://github.com/ramincsy/enterprise-directory-showcase">GitHub</a> · <a href="https://ramincsy.github.io/enterprise-directory-showcase/">Live Pages</a> · <a href="https://ramincsy.github.io/ramioo-showcase/">Hub</a></p>
+    </div>
+  </footer>
+
+  <script>
+    const chips = document.querySelectorAll(".chip[data-filter]");
+    const tiles = document.querySelectorAll(".tile");
+    chips.forEach((chip) => {
+      chip.addEventListener("click", () => {
+        chips.forEach((c) => c.classList.remove("is-on"));
+        chip.classList.add("is-on");
+        const f = chip.dataset.filter;
+        tiles.forEach((t) => {
+          t.style.display = f === "all" || t.dataset.cat === f ? "" : "none";
+        });
+      });
+    });
+  </script>
+</body>
+</html>
