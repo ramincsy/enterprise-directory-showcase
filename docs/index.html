@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Enterprise Directory — Product Catalog | دفترچه تلفن سازمانی · ramioo</title>
-  <meta name="description" content="Numbered product tour of Enterprise Directory: staff directory + full admin console. Screens from a real deployment with sensitive fields anonymized." />
+  <meta name="description" content="Enterprise Directory catalog: staff photos, mobile & email on cards, org announcements, admin reports, and full governance. Real UI shots with anonymized demo data." />
   <meta name="theme-color" content="#0c1018" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -13,7 +13,7 @@
     :root {
       --bg:#07090d; --bg2:#0c1018; --card:#121826; --line:#1e2738;
       --text:#eef2f8; --muted:#93a0b5; --accent:#60a5fa; --accent2:#a78bfa;
-      --accent-dim:rgba(96,165,250,.12);
+      --accent-dim:rgba(96,165,250,.12); --ok:#34d399;
     }
     *{box-sizing:border-box} html{scroll-behavior:smooth}
     body{margin:0;font-family:Inter,system-ui,sans-serif;background:var(--bg);color:var(--text);font-size:15px;line-height:1.65;-webkit-font-smoothing:antialiased}
@@ -24,25 +24,35 @@
     .banner b{color:var(--accent)}
     header.hero{padding:80px 0 52px;border-bottom:1px solid var(--line);background:radial-gradient(900px 420px at 12% -20%,rgba(96,165,250,.16),transparent 55%),radial-gradient(700px 360px at 95% 0%,rgba(167,139,250,.10),transparent 50%),var(--bg2)}
     .kicker{color:var(--accent);font-size:11px;letter-spacing:.22em;font-weight:600;text-transform:uppercase;margin:0 0 16px}
-    h1{font-size:clamp(30px,4vw,44px);line-height:1.15;margin:0 0 16px;font-weight:700;letter-spacing:-.03em;max-width:22ch}
-    .lede{color:var(--muted);font-size:16.5px;line-height:1.75;max-width:720px;margin:0 0 24px}
-    .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:28px}
+    h1{font-size:clamp(30px,4vw,44px);line-height:1.15;margin:0 0 16px;font-weight:700;letter-spacing:-.03em;max-width:24ch}
+    .lede{color:var(--muted);font-size:16.5px;line-height:1.75;max-width:760px;margin:0 0 12px}
+    .lede.fa{font-family:Vazirmatn,Inter,sans-serif;direction:rtl;max-width:760px;margin:0 0 24px}
+    .highlights{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:0 0 28px}
+    .hl{display:flex;flex-direction:column;gap:8px;padding:18px 16px;border:1px solid var(--line);border-radius:16px;background:linear-gradient(180deg,rgba(96,165,250,.08),var(--card));color:var(--text);text-decoration:none;min-height:132px;transition:border-color .2s,transform .2s}
+    .hl:hover{border-color:var(--accent);transform:translateY(-2px);text-decoration:none}
+    .hl .ico{font-size:22px;line-height:1}
+    .hl b{font-size:15px;font-weight:700;letter-spacing:-.01em}
+    .hl span{color:var(--muted);font-size:12.5px;line-height:1.5}
+    .hl .fa{font-family:Vazirmatn,Inter,sans-serif;direction:rtl;color:var(--muted);font-size:12.5px;line-height:1.55}
+    .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:8px}
     .stat{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 16px 16px}
     .stat b{display:block;font-size:18px;font-weight:700;color:var(--accent2)}
     .stat span{color:var(--muted);font-size:12.5px}
-    .journey{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:6px;margin:0 0 8px}
+    .journey{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:6px;margin:28px 0 8px}
     .journey a{display:flex;flex-direction:column;gap:4px;padding:10px 8px;border:1px solid var(--line);border-radius:12px;background:var(--card);color:var(--text);text-decoration:none;min-height:72px}
     .journey a:hover{border-color:var(--accent);text-decoration:none}
+    .journey a.key{border-color:rgba(96,165,250,.45);background:rgba(96,165,250,.08)}
     .journey small{color:var(--accent);font-size:10px;font-weight:700;letter-spacing:.12em}
     .journey span{font-size:11.5px;line-height:1.35;color:var(--muted)}
     nav.toc{position:sticky;top:0;z-index:20;background:rgba(7,9,13,.9);border-bottom:1px solid var(--line);backdrop-filter:blur(14px)}
     nav.toc .wrap{display:flex;gap:8px;flex-wrap:wrap;padding:12px 0;align-items:center}
     .chip{border:1px solid var(--line);background:transparent;color:var(--text);padding:7px 12px;font:inherit;font-size:12px;font-weight:500;cursor:pointer;border-radius:999px;text-decoration:none}
     a.chip{display:inline-flex;align-items:center}
-    .chip:hover{border-color:var(--accent);color:var(--accent);background:var(--accent-dim);text-decoration:none}
+    .chip:hover,.chip.key{border-color:var(--accent);color:var(--accent);background:var(--accent-dim);text-decoration:none}
     .gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;padding:36px 0 8px}
     .tile{position:relative;background:var(--card);border:1px solid var(--line);overflow:hidden;border-radius:16px;color:inherit;cursor:zoom-in;text-decoration:none;transition:border-color .2s,transform .2s,box-shadow .2s}
     .tile:hover{border-color:var(--accent);transform:translateY(-3px);box-shadow:0 12px 40px rgba(0,0,0,.35);text-decoration:none}
+    .tile.key{border-color:rgba(96,165,250,.4)}
     .tile img{height:168px;width:100%;object-fit:cover;object-position:top}
     .tile .num{position:absolute;top:10px;left:10px;width:28px;height:28px;display:flex;align-items:center;justify-content:center;background:var(--accent);color:#0b1220;font-size:11px;font-weight:800;border-radius:8px}
     .tile .meta{padding:14px 16px 16px}
@@ -54,15 +64,20 @@
     .mod h2{font-size:26px;margin:0 0 10px;font-weight:700;letter-spacing:-.02em}
     .mod .why{color:var(--muted);margin:0 0 10px;max-width:780px}
     .mod .why.fa{font-family:Vazirmatn,Inter,sans-serif;direction:rtl;margin-bottom:22px}
+    .pillrow{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 18px}
+    .pill{display:inline-flex;align-items:center;gap:6px;padding:6px 12px;border-radius:999px;border:1px solid rgba(52,211,153,.35);background:rgba(52,211,153,.08);color:var(--ok);font-size:12px;font-weight:600}
     .shot{border:1px solid var(--line);border-radius:16px;overflow:hidden;background:#05070b;cursor:zoom-in}
     .shot img{width:100%;height:auto}
     .note{margin-top:14px;color:var(--muted);font-size:13px;border-left:3px solid var(--accent);padding-left:12px}
     .note.fa{font-family:Vazirmatn,Inter,sans-serif;direction:rtl;border-left:none;border-right:3px solid var(--accent);padding-left:0;padding-right:12px;margin-top:8px}
     .next{margin-top:18px;font-size:13px}
     .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+    .cards.six{grid-template-columns:repeat(3,1fr)}
     .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 16px}
+    .card.key{border-color:rgba(96,165,250,.4);background:linear-gradient(180deg,rgba(96,165,250,.07),var(--card))}
     .card h3{margin:0 0 8px;font-size:15px}
     .card p{margin:0;color:var(--muted);font-size:13px}
+    .card a{font-size:12.5px;font-weight:600}
     .fa-block{font-family:Vazirmatn,Inter,sans-serif;direction:rtl}
     footer{border-top:1px solid var(--line);padding:40px 0 64px;color:var(--muted);font-size:13px}
     #lightbox{display:none;position:fixed;inset:0;z-index:100;background:rgba(0,0,0,.94);overflow:auto;cursor:zoom-out}
@@ -70,21 +85,54 @@
     #lbbar{position:sticky;top:0;display:flex;justify-content:space-between;gap:12px;align-items:center;padding:14px 20px;background:rgba(7,9,13,.92);border-bottom:1px solid var(--line);font-size:13px;color:var(--muted)}
     #lbbar b{color:var(--text)}
     #lightbox img{width:min(96vw,1280px);height:auto;margin:20px auto 48px;border-radius:10px}
-    @media(max-width:1100px){.journey{grid-template-columns:repeat(5,minmax(0,1fr))}}
-    @media(max-width:900px){.stats,.gallery,.cards{grid-template-columns:1fr 1fr} h1{max-width:none}}
-    @media(max-width:560px){.stats,.gallery,.cards,.journey{grid-template-columns:1fr 1fr}}
+    @media(max-width:1000px){.highlights{grid-template-columns:1fr 1fr}}
+    @media(max-width:900px){.stats,.gallery,.cards,.cards.six{grid-template-columns:1fr 1fr} h1{max-width:none}}
+    @media(max-width:560px){.stats,.gallery,.cards,.cards.six,.journey,.highlights{grid-template-columns:1fr}}
   </style>
 </head>
 <body>
   <header class="hero">
     <div class="wrap">
       <p class="kicker">Enterprise Directory · 17-screen product tour · Staff + Admin</p>
-      <h1>Org phonebook for the holding — then the full admin console</h1>
+      <h1>Photos, mobile &amp; email, announcements, and admin reports — in one org phonebook</h1>
       <p class="lede">
-        Numbered tour of an on-prem Persian RTL directory: colleagues find extensions on the front,
-        operators govern companies, people, visibility, Excel import, backups, announcements, monitoring, visual theme, and 2FA.
-        Frames are <strong>real product pages</strong> with <strong>sensitive rows anonymized</strong> for this public catalog.
+        Colleagues open contact cards with <strong>profile photos</strong>, <strong>mobile</strong>, and <strong>email</strong>;
+        the holding publishes <strong>org announcements</strong>; operators run <strong>admin reports</strong>, activity audit,
+        Excel import, backups, theme, and 2FA. Frames are <strong>real product pages</strong> with sensitive rows anonymized.
       </p>
+      <p class="lede fa">
+        همکاران روی کارت‌ها <strong>عکس پرسنل</strong>، <strong>موبایل</strong> و <strong>ایمیل</strong> را می‌بینند؛
+        هلدینگ <strong>اطلاعیه سازمانی</strong> منتشر می‌کند؛ ادمین‌ها <strong>گزارش و مانیتورینگ</strong>، لاگ فعالیت،
+        ورود اکسل، بکاپ، تم و ۲FA را مدیریت می‌کنند. اسکرین‌ها از UI واقعی‌اند با دادهٔ دمو.
+      </p>
+
+      <div class="highlights" aria-label="Key capabilities">
+        <a class="hl" href="#s-16">
+          <span class="ico" aria-hidden="true">📷</span>
+          <b>Personnel photos</b>
+          <span>Upload JPEG/PNG/WebP, crop &amp; zoom, circular card preview — avatars on the staff directory.</span>
+          <span class="fa">آپلود عکس پرسنل، برش و زوم، پیش‌نمایش دایره‌ای روی کارت دفترچه.</span>
+        </a>
+        <a class="hl" href="#s-01">
+          <span class="ico" aria-hidden="true">📱</span>
+          <b>Mobile &amp; email</b>
+          <span>Contact cards expose email and mobile actions when visibility allows — not just extension numbers.</span>
+          <span class="fa">روی کارت تماس، ایمیل و موبایل (با کنترل نمایش) در کنار داخلی دیده می‌شود.</span>
+        </a>
+        <a class="hl" href="#s-09">
+          <span class="ico" aria-hidden="true">📢</span>
+          <b>Org announcements</b>
+          <span>Time-bounded notices published for the holding and surfaced in the staff directory experience.</span>
+          <span class="fa">اطلاعیه زمان‌دار برای کل هلدینگ؛ در تجربهٔ کاربری دفترچه دیده می‌شود.</span>
+        </a>
+        <a class="hl" href="#s-08">
+          <span class="ico" aria-hidden="true">📊</span>
+          <b>Admin reports</b>
+          <span>Usage analytics, search heat, device mix — plus activity audit and dashboard KPIs for operators.</span>
+          <span class="fa">گزارش مصرف، جستجوهای پرتکرار، ترکیب دستگاه؛ به‌همراه لاگ فعالیت و داشبورد.</span>
+        </a>
+      </div>
+
       <div class="banner">
         <b>Anonymized deployment shots.</b>
         Names, companies, phones, emails, and IPs were replaced with fictional demo data in the browser before capture — no blur, no server changes.
@@ -94,44 +142,45 @@
         <a href="https://ramincsy.github.io/taradod-nexus-showcase/">Taradod Nexus</a>.
       </div>
       <nav class="journey" aria-label="Product tour">
-        <a href="#s-01"><small>01</small><span>Directory</span></a>
+        <a class="key" href="#s-01"><small>01</small><span>Directory · mobile/email</span></a>
         <a href="#s-02"><small>02</small><span>Admin login</span></a>
         <a href="#s-03"><small>03</small><span>Dashboard</span></a>
         <a href="#s-04"><small>04</small><span>Companies</span></a>
         <a href="#s-05"><small>05</small><span>Employees</span></a>
         <a href="#s-06"><small>06</small><span>Admins</span></a>
         <a href="#s-07"><small>07</small><span>Activity</span></a>
-        <a href="#s-08"><small>08</small><span>Monitoring</span></a>
-        <a href="#s-09"><small>09</small><span>Announcements</span></a>
+        <a class="key" href="#s-08"><small>08</small><span>Reports / monitoring</span></a>
+        <a class="key" href="#s-09"><small>09</small><span>Announcements</span></a>
         <a href="#s-10"><small>10</small><span>Excel import</span></a>
         <a href="#s-11"><small>11</small><span>Backup</span></a>
         <a href="#s-12"><small>12</small><span>Restore</span></a>
         <a href="#s-13"><small>13</small><span>Security / 2FA</span></a>
         <a href="#s-14"><small>14</small><span>Visual theme</span></a>
         <a href="#s-15"><small>15</small><span>Password</span></a>
-        <a href="#s-16"><small>16</small><span>Edit + photo</span></a>
-        <a href="#s-17"><small>17</small><span>Photo crop</span></a>
+        <a class="key" href="#s-16"><small>16</small><span>Edit + photo upload</span></a>
+        <a class="key" href="#s-17"><small>17</small><span>Photo crop</span></a>
       </nav>
       <div class="stats">
-        <div class="stat"><b>17</b><span>Catalog screens</span></div>
-        <div class="stat"><b>Staff + Admin</b><span>Two product surfaces</span></div>
-        <div class="stat"><b>2FA</b><span>Authenticator ready</span></div>
-        <div class="stat"><b>EN notes · FA UI</b><span>Bilingual catalog copy</span></div>
+        <div class="stat"><b>Photo + crop</b><span>Personnel avatars on cards</span></div>
+        <div class="stat"><b>Mobile · Email</b><span>Visible on staff directory</span></div>
+        <div class="stat"><b>Announcements</b><span>Holding-wide notices</span></div>
+        <div class="stat"><b>Admin reports</b><span>Analytics + activity audit</span></div>
       </div>
     </div>
   </header>
 
   <nav class="toc">
     <div class="wrap">
-      <a class="chip" href="#s-01">01 Directory</a>
+      <a class="chip key" href="#s-01">01 Mobile/Email</a>
+      <a class="chip key" href="#s-08">08 Reports</a>
+      <a class="chip key" href="#s-09">09 Announcements</a>
+      <a class="chip key" href="#s-16">16 Photo</a>
+      <a class="chip key" href="#s-17">17 Crop</a>
       <a class="chip" href="#s-03">03 Dashboard</a>
       <a class="chip" href="#s-05">05 Employees</a>
-      <a class="chip" href="#s-08">08 Monitoring</a>
       <a class="chip" href="#s-10">10 Import</a>
       <a class="chip" href="#s-13">13 Security</a>
-      <a class="chip" href="#s-16">16 Photo</a>
-      <a class="chip" href="#s-17">17 Crop</a>
-      <a class="chip" href="#stack">Capabilities</a>
+      <a class="chip" href="#stack">All capabilities</a>
       <a class="chip" href="https://github.com/ramincsy/enterprise-directory-showcase">GitHub</a>
     </div>
   </nav>
@@ -139,14 +188,20 @@
   <div class="wrap"><div class="gallery" id="grid"></div></div>
 
   <section class="mod" id="s-01"><div class="wrap">
-    <p class="step-kicker">01 / 17 · Staff</p>
-    <h2>Staff directory — extension-first contact cards</h2>
-    <p class="why">Search by name, department, or email; filter by company and department; open email/mobile when visibility allows; dark-mode and language controls live in the product chrome.</p>
-    <p class="why fa">جستجو با نام، بخش یا ایمیل؛ فیلتر شرکت و بخش؛ تماس ایمیل/موبایل با کنترل نمایش؛ تم تیره و زبان در خود محصول.</p>
-    <div class="shot" data-full="shots/01-directory.jpg"><img src="shots/01-directory.jpg" alt="01 — Staff directory" /></div>
-    <p class="note">Card identities swapped to fictional demo people/companies before capture.</p>
-    <p class="note fa">هویت روی کارت‌ها قبل از اسکرین با دادهٔ دموی ساختگی عوض شده است.</p>
-    <p class="next"><a href="#s-02">Next · 02 Admin login →</a></p>
+    <p class="step-kicker">01 / 17 · Staff · Key capability</p>
+    <h2>Staff directory — photos, mobile, and email on every card</h2>
+    <div class="pillrow">
+      <span class="pill">Profile photo avatars</span>
+      <span class="pill">Mobile action</span>
+      <span class="pill">Email action</span>
+      <span class="pill">Extension · search · filters</span>
+    </div>
+    <p class="why">Search by name, department, or email; filter by company and department. Each contact card shows a profile photo (or gendered demo avatar), the extension, and — when visibility allows — one-tap <strong>email</strong> and <strong>mobile</strong> actions. Dark mode and language live in the product chrome.</p>
+    <p class="why fa">جستجو با نام، بخش یا ایمیل؛ فیلتر شرکت و بخش. روی هر کارت: <strong>عکس پروفایل</strong> (یا آواتار دموی خانم/آقا)، داخلی، و در صورت مجاز بودن نمایش، اکشن <strong>ایمیل</strong> و <strong>موبایل</strong>. تم تیره و زبان در خود محصول است.</p>
+    <div class="shot" data-full="shots/01-directory.jpg"><img src="shots/01-directory.jpg" alt="01 — Staff directory with photos, mobile and email" /></div>
+    <p class="note">Card identities swapped to fictional demo people/companies before capture. Look for photo avatars plus email/mobile controls on the cards.</p>
+    <p class="note fa">هویت روی کارت‌ها قبل از اسکرین با دادهٔ دمو عوض شده است. آواتار عکس و کنترل ایمیل/موبایل را روی کارت‌ها ببینید.</p>
+    <p class="next"><a href="#s-02">Next · 02 Admin login →</a> · <a href="#s-16">Jump · upload photo →</a></p>
   </div></section>
 
   <section class="mod" id="s-02"><div class="wrap">
@@ -161,8 +216,8 @@
   <section class="mod" id="s-03"><div class="wrap">
     <p class="step-kicker">03 / 17 · Admin</p>
     <h2>Dashboard — holding health and quick actions</h2>
-    <p class="why">KPIs for companies, total users, active vs hidden; tiles into company / employee / admin management; recent sensitive activity.</p>
-    <p class="why fa">شاخص شرکت، کاربر، فعال/مخفی؛ میانبر مدیریت شرکت/کاربر/ادمین؛ فعالیت‌های حساس اخیر.</p>
+    <p class="why">KPIs for companies, total users, active vs hidden; tiles into company / employee / admin management; recent sensitive activity — the first stop before deeper admin reports.</p>
+    <p class="why fa">شاخص شرکت، کاربر، فعال/مخفی؛ میانبر مدیریت شرکت/کاربر/ادمین؛ فعالیت‌های حساس اخیر — نقطهٔ شروع گزارش‌های ادمین.</p>
     <div class="shot" data-full="shots/03-dashboard.jpg"><img src="shots/03-dashboard.jpg" alt="03 — Admin dashboard" /></div>
     <p class="next"><a href="#s-04">Next · 04 Companies →</a></p>
   </div></section>
@@ -179,10 +234,10 @@
   <section class="mod" id="s-05"><div class="wrap">
     <p class="step-kicker">05 / 17 · Admin</p>
     <h2>Employees — add, edit, hide, dedupe</h2>
-    <p class="why">Full people table with filters, new-user flow, duplicate management, and per-row edit / visibility / delete actions.</p>
-    <p class="why fa">جدول کامل افراد با فیلتر، کاربر جدید، مدیریت تکراری‌ها، و اکشن ویرایش / نمایش / حذف.</p>
+    <p class="why">Full people table with filters, new-user flow, duplicate management, and per-row edit / visibility / delete. Edit opens photo upload (screens 16–17).</p>
+    <p class="why fa">جدول کامل افراد با فیلتر، کاربر جدید، مدیریت تکراری‌ها، و اکشن ویرایش / نمایش / حذف. از ویرایش به آپلود عکس می‌روید (صفحات ۱۶–۱۷).</p>
     <div class="shot" data-full="shots/05-employees.jpg"><img src="shots/05-employees.jpg" alt="05 — Employees" /></div>
-    <p class="next"><a href="#s-06">Next · 06 Admins →</a></p>
+    <p class="next"><a href="#s-06">Next · 06 Admins →</a> · <a href="#s-16">Jump · photo upload →</a></p>
   </div></section>
 
   <section class="mod" id="s-06"><div class="wrap">
@@ -195,29 +250,40 @@
   </div></section>
 
   <section class="mod" id="s-07"><div class="wrap">
-    <p class="step-kicker">07 / 17 · Ops</p>
+    <p class="step-kicker">07 / 17 · Ops · Admin report trail</p>
     <h2>Activity log — who changed what</h2>
-    <p class="why">Audit trail of logins, imports, backups, and directory edits for accountability.</p>
-    <p class="why fa">ردپای ورود، واردسازی، بکاپ و ویرایش دفترچه برای پاسخ‌گویی.</p>
+    <p class="why">Audit trail of logins, imports, backups, and directory edits — part of the admin reporting surface for accountability.</p>
+    <p class="why fa">ردپای ورود، واردسازی، بکاپ و ویرایش دفترچه — بخشی از گزارش‌دهی ادمین برای پاسخ‌گویی.</p>
     <div class="shot" data-full="shots/07-activity.jpg"><img src="shots/07-activity.jpg" alt="07 — Activity" /></div>
     <p class="next"><a href="#s-08">Next · 08 Monitoring →</a></p>
   </div></section>
 
   <section class="mod" id="s-08"><div class="wrap">
-    <p class="step-kicker">08 / 17 · Ops</p>
-    <h2>Monitoring — usage analytics</h2>
-    <p class="why">Page views, search heat, device/browser mix, and hourly patterns so IT sees how the book is used.</p>
-    <p class="why fa">بازدید، جستجوهای پرتکرار، ترکیب دستگاه/مرورگر و الگوی ساعتی مصرف.</p>
-    <div class="shot" data-full="shots/08-analytics.jpg"><img src="shots/08-analytics.jpg" alt="08 — Monitoring / analytics" /></div>
+    <p class="step-kicker">08 / 17 · Ops · Key capability</p>
+    <h2>Admin reports — usage analytics &amp; monitoring</h2>
+    <div class="pillrow">
+      <span class="pill">Page views</span>
+      <span class="pill">Search heat</span>
+      <span class="pill">Device / browser mix</span>
+      <span class="pill">Hourly patterns</span>
+    </div>
+    <p class="why">Operators see how the phonebook is used: page views, hot searches, device and browser mix, and hourly patterns — admin reports for IT and holding leadership, not just a static contact list.</p>
+    <p class="why fa">اپراتورها می‌بینند دفترچه چطور استفاده می‌شود: بازدید صفحات، جستجوهای پرتکرار، ترکیب دستگاه/مرورگر و الگوی ساعتی — <strong>گزارش ادمین</strong> برای IT و مدیریت هلدینگ، نه فقط لیست تماس.</p>
+    <div class="shot" data-full="shots/08-analytics.jpg"><img src="shots/08-analytics.jpg" alt="08 — Admin reports / monitoring" /></div>
     <p class="next"><a href="#s-09">Next · 09 Announcements →</a></p>
   </div></section>
 
   <section class="mod" id="s-09"><div class="wrap">
-    <p class="step-kicker">09 / 17 · Ops</p>
-    <h2>Org announcements — message the holding</h2>
-    <p class="why">Publish time-bounded notices that surface in the staff directory experience.</p>
-    <p class="why fa">انتشار اطلاعیه زمان‌دار که در تجربهٔ کاربری دفترچه دیده می‌شود.</p>
-    <div class="shot" data-full="shots/09-announcements.jpg"><img src="shots/09-announcements.jpg" alt="09 — Announcements" /></div>
+    <p class="step-kicker">09 / 17 · Ops · Key capability</p>
+    <h2>Org announcements — message the whole holding</h2>
+    <div class="pillrow">
+      <span class="pill">Time-bounded notices</span>
+      <span class="pill">Visible on staff directory</span>
+      <span class="pill">Holding-wide reach</span>
+    </div>
+    <p class="why">Publish time-bounded organizational announcements that surface in the staff directory experience — so the phonebook doubles as an internal notice board for the holding.</p>
+    <p class="why fa">انتشار <strong>اطلاعیه سازمانی</strong> زمان‌دار که در تجربهٔ کاربری دفترچه دیده می‌شود — دفترچه تلفن هم‌زمان تابلوی اعلامیه‌های هلدینگ است.</p>
+    <div class="shot" data-full="shots/09-announcements.jpg"><img src="shots/09-announcements.jpg" alt="09 — Organizational announcements" /></div>
     <p class="next"><a href="#s-10">Next · 10 Excel import →</a></p>
   </div></section>
 
@@ -276,34 +342,50 @@
   </div></section>
 
   <section class="mod" id="s-16"><div class="wrap">
-    <p class="step-kicker">16 / 17 · Admin</p>
-    <h2>Edit employee — profile photo upload</h2>
-    <p class="why">From the people table, operators open Edit User to change bilingual names, company, gender, department, extension — and attach a profile photo (JPEG / PNG / WebP, max 3&nbsp;MB) used as the gender-visible avatar on the staff directory.</p>
-    <p class="why fa">از جدول افراد، اپراتور «ویرایش کاربر» را باز می‌کند تا نام دوزبانه، شرکت، جنسیت، بخش، داخلی و عکس پروفایل (JPEG/PNG/WebP تا ۳MB) را تنظیم کند؛ همان عکس روی کارت دفترچه به‌عنوان آواتار خانم/آقا دیده می‌شود.</p>
+    <p class="step-kicker">16 / 17 · Admin · Key capability</p>
+    <h2>Add personnel photos — edit user &amp; upload</h2>
+    <div class="pillrow">
+      <span class="pill">JPEG / PNG / WebP</span>
+      <span class="pill">Max 3 MB</span>
+      <span class="pill">Shows on staff directory</span>
+    </div>
+    <p class="why">From the people table, operators open <strong>Edit User</strong> to change bilingual names, company, gender, department, extension — and <strong>attach a profile photo</strong>. That photo becomes the avatar on staff directory cards so colleagues recognize people, not just numbers.</p>
+    <p class="why fa">از جدول افراد، اپراتور «ویرایش کاربر» را باز می‌کند تا نام دوزبانه، شرکت، جنسیت، بخش، داخلی و <strong>عکس پروفایل</strong> را تنظیم کند. همان عکس روی کارت دفترچه دیده می‌شود تا همکاران افراد را بشناسند، نه فقط شماره داخلی.</p>
     <div class="shot" data-full="shots/16-employee-edit.jpg"><img src="shots/16-employee-edit.jpg" alt="16 — Edit employee with photo upload" /></div>
     <p class="next"><a href="#s-17">Next · 17 Photo crop →</a></p>
   </div></section>
 
   <section class="mod" id="s-17"><div class="wrap">
-    <p class="step-kicker">17 / 17 · Admin</p>
+    <p class="step-kicker">17 / 17 · Admin · Key capability</p>
     <h2>Photo crop — drag, zoom, card preview</h2>
-    <p class="why">Before upload, a crop modal lets you drag to frame, zoom with the wheel or slider, and preview the circular card crop (gender-aware directory avatar). Saved image is compressed to WebP on the server.</p>
-    <p class="why fa">قبل از آپلود، مودال برش امکان جابه‌جایی، زوم با اسکرول/اسلایدر و پیش‌نمایش دایره‌ای کارت را می‌دهد؛ تصویر ذخیره‌شده روی سرور به WebP فشرده می‌شود.</p>
+    <div class="pillrow">
+      <span class="pill">Drag to frame</span>
+      <span class="pill">Zoom wheel / slider</span>
+      <span class="pill">Circular card preview</span>
+      <span class="pill">Server WebP</span>
+    </div>
+    <p class="why">Before upload, a crop modal lets you drag to frame, zoom with the wheel or slider, and preview the circular card crop. Saved image is compressed to WebP on the server — so adding personnel photos is a guided, in-product flow.</p>
+    <p class="why fa">قبل از آپلود، مودال برش امکان جابه‌جایی، زوم با اسکرول/اسلایدر و پیش‌نمایش دایره‌ای کارت را می‌دهد؛ تصویر روی سرور به WebP فشرده می‌شود — اضافه کردن عکس پرسنل یک جریان کامل داخل محصول است.</p>
     <div class="shot" data-full="shots/17-photo-crop.jpg"><img src="shots/17-photo-crop.jpg" alt="17 — Profile photo crop" /></div>
   </div></section>
 
   <section class="mod" id="stack"><div class="wrap">
     <h2>Capability map / نقشهٔ قابلیت</h2>
-    <div class="cards">
-      <div class="card"><h3>Staff directory</h3><p>Search, company/dept filters, extension cards with gendered profile photos, email/mobile actions, PWA, dark mode, bilingual labels.</p></div>
-      <div class="card"><h3>Governance</h3><p>Companies, employees (photo upload + crop), admins, announcements, Excel import, duplicate merge, backup/restore, visual theme.</p></div>
-      <div class="card"><h3>Security &amp; ops</h3><p>2FA + recovery codes, password policy, activity audit, usage monitoring, Super Admin gates.</p></div>
+    <p class="why" style="margin-bottom:18px">What visitors should take away: the directory is not only extensions — it carries photos, mobile/email, org announcements, and admin reporting, plus full governance.</p>
+    <div class="cards six">
+      <div class="card key"><h3>📷 Personnel photos</h3><p>Upload + crop from Edit User; avatars on staff cards. <a href="#s-16">See 16–17 →</a></p></div>
+      <div class="card key"><h3>📱 Mobile &amp; email</h3><p>Contact actions on directory cards when visibility allows. <a href="#s-01">See 01 →</a></p></div>
+      <div class="card key"><h3>📢 Org announcements</h3><p>Time-bounded holding notices in the staff experience. <a href="#s-09">See 09 →</a></p></div>
+      <div class="card key"><h3>📊 Admin reports</h3><p>Usage monitoring, search heat, activity audit, dashboard KPIs. <a href="#s-08">See 07–08 →</a></p></div>
+      <div class="card"><h3>Governance</h3><p>Companies, employees, admins, Excel import, duplicate merge, backup/restore, visual theme.</p></div>
+      <div class="card"><h3>Security</h3><p>2FA + recovery codes, password policy, Super Admin gates, separate admin login.</p></div>
     </div>
   </div></section>
 
   <section class="mod" id="fa"><div class="wrap fa-block">
     <h2>دفترچه تلفن سازمانی — تور ۱۷ صفحه‌ای</h2>
-    <p class="why">ترتیب کاتالوگ همان مسیر محصول است: دفترچه کاربری → ورود ادمین → داشبورد → شرکت‌ها → کارمندان → ادمین‌ها → فعالیت → مانیتورینگ → اطلاعیه → اکسل → بکاپ → بازیابی → امنیت → تم بصری → تغییر رمز → ویرایش کاربر و آپلود عکس → برش/زوم عکس.</p>
+    <p class="why">بیننده باید در نگاه اول بفهمد: می‌توان <strong>عکس پرسنل</strong> اضافه کرد، روی کارت‌ها <strong>موبایل و ایمیل</strong> دید، <strong>اطلاعیه سازمانی</strong> منتشر کرد، و <strong>گزارش ادمین</strong> (مانیتورینگ و لاگ) گرفت — به‌همراه شرکت‌ها، اکسل، بکاپ، تم و ۲FA.</p>
+    <p class="why">ترتیب تور: دفترچه کاربری → ورود ادمین → داشبورد → شرکت‌ها → کارمندان → ادمین‌ها → فعالیت → مانیتورینگ → اطلاعیه → اکسل → بکاپ → بازیابی → امنیت → تم بصری → تغییر رمز → ویرایش و آپلود عکس → برش/زوم عکس.</p>
     <p class="note fa">اسکرین‌ها از UI واقعی‌اند؛ نام‌ها و مشخصات حساس در مرورگر با دادهٔ دمو عوض شده‌اند (بدون بلور).</p>
   </div></section>
 
@@ -328,27 +410,27 @@
 
   <script>
     const shots = [
-      { n:"01", src:"shots/01-directory.jpg", tag:"STAFF", title:"Staff directory", desc:"Cards, search, filters" },
+      { n:"01", src:"shots/01-directory.jpg", tag:"STAFF · KEY", title:"Directory · photos + mobile/email", desc:"Avatars, email & mobile on cards", key:true },
       { n:"02", src:"shots/02-admin-login.jpg", tag:"ACCESS", title:"Admin login", desc:"Operator entry" },
       { n:"03", src:"shots/03-dashboard.jpg", tag:"ADMIN", title:"Dashboard", desc:"KPIs and quick actions" },
       { n:"04", src:"shots/04-companies.jpg", tag:"ADMIN", title:"Companies", desc:"Prefixes and bilingual names" },
-      { n:"05", src:"shots/05-employees.jpg", tag:"ADMIN", title:"Employees", desc:"Table, hide, dedupe" },
+      { n:"05", src:"shots/05-employees.jpg", tag:"ADMIN", title:"Employees", desc:"Table, hide, dedupe → photo" },
       { n:"06", src:"shots/06-users.jpg", tag:"ADMIN", title:"Admin accounts", desc:"Super Admin controls" },
-      { n:"07", src:"shots/07-activity.jpg", tag:"OPS", title:"Activity log", desc:"Audit trail" },
-      { n:"08", src:"shots/08-analytics.jpg", tag:"OPS", title:"Monitoring", desc:"Usage analytics" },
-      { n:"09", src:"shots/09-announcements.jpg", tag:"OPS", title:"Announcements", desc:"Org notices" },
+      { n:"07", src:"shots/07-activity.jpg", tag:"OPS", title:"Activity log", desc:"Admin audit trail" },
+      { n:"08", src:"shots/08-analytics.jpg", tag:"OPS · KEY", title:"Admin reports", desc:"Usage analytics & monitoring", key:true },
+      { n:"09", src:"shots/09-announcements.jpg", tag:"OPS · KEY", title:"Org announcements", desc:"Holding-wide notices", key:true },
       { n:"10", src:"shots/10-import.jpg", tag:"DATA", title:"Excel import", desc:"Bulk load + preview" },
       { n:"11", src:"shots/11-backup.jpg", tag:"DATA", title:"Backup", desc:"JSON export" },
       { n:"12", src:"shots/12-restore.jpg", tag:"DATA", title:"Restore", desc:"Gated recovery" },
       { n:"13", src:"shots/13-security.jpg", tag:"SEC", title:"Security / 2FA", desc:"Authenticator + codes" },
       { n:"14", src:"shots/14-visual-settings.jpg", tag:"BRAND", title:"Visual settings", desc:"Theme the public book" },
       { n:"15", src:"shots/15-change-password.jpg", tag:"SEC", title:"Change password", desc:"Operator hygiene" },
-      { n:"16", src:"shots/16-employee-edit.jpg", tag:"ADMIN", title:"Edit + photo", desc:"Upload profile picture" },
-      { n:"17", src:"shots/17-photo-crop.jpg", tag:"ADMIN", title:"Photo crop", desc:"Drag, zoom, preview" }
+      { n:"16", src:"shots/16-employee-edit.jpg", tag:"ADMIN · KEY", title:"Add personnel photo", desc:"Upload from Edit User", key:true },
+      { n:"17", src:"shots/17-photo-crop.jpg", tag:"ADMIN · KEY", title:"Photo crop", desc:"Drag, zoom, preview", key:true }
     ];
     const grid = document.getElementById("grid");
     grid.innerHTML = shots.map((s) => `
-      <a class="tile" href="#s-${s.n}" data-full="${s.src}">
+      <a class="tile${s.key ? " key" : ""}" href="#s-${s.n}" data-full="${s.src}">
         <span class="num">${s.n}</span>
         <img src="${s.src}" alt="${s.n} — ${s.title}" />
         <div class="meta"><div class="tag">${s.tag}</div><h3>${s.n} · ${s.title}</h3><p>${s.desc}</p></div>
