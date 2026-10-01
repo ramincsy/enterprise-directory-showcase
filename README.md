@@ -1,8 +1,8 @@
 <div align="center">
 
-# Enterprise directory
+# Enterprise Directory
 
-Contacts across large organizations · دفترچه تلفن سازمانی
+Who’s who across the holding — searchable, current, under IT control · چه کسی کجاست در هلدینگ
 
 <p>
   <a href="https://www.ramioo.com/projects/enterprise-directory"><img src="https://img.shields.io/badge/%E2%86%92%20Open%20project%20page-0A66C2?style=for-the-badge" alt="Open project page" /></a>
@@ -11,7 +11,7 @@ Contacts across large organizations · دفترچه تلفن سازمانی
 </p>
 
 <p>
-  <a href="https://www.ramioo.com/projects/enterprise-directory"><img src="docs/card.jpg" alt="Enterprise directory" width="860" /></a>
+  <a href="https://www.ramioo.com/projects/enterprise-directory"><img src="docs/card.jpg" alt="Enterprise Directory" width="860" /></a>
 </p>
 
 <p><a href="https://ramincsy.github.io/enterprise-directory-showcase/">Live catalog (GitHub Pages)</a> · <a href="https://www.ramioo.com/projects/enterprise-directory">Project page</a></p>
@@ -20,8 +20,7 @@ Contacts across large organizations · دفترچه تلفن سازمانی
 
 > Public product window. Source code stays private.
 
-**Catalog language:** the [GitHub Pages tour](https://ramincsy.github.io/enterprise-directory-showcase/) is bilingual with an **EN | فارسی** toggle (default FA / RTL; last choice remembered in `localStorage`). English and Persian are never stacked in the same visible block.
-
+**Catalog language:** the [GitHub Pages tour](https://ramincsy.github.io/enterprise-directory-showcase/) is bilingual with an **EN | فارسی** toggle (default FA / RTL; last choice remembered). English and Persian are never stacked in the same visible block.
 
 Interactive UI catalogs on GitHub Pages: [Atlas](https://ramincsy.github.io/atlas-showcase/) · [Taradod Nexus](https://ramincsy.github.io/taradod-nexus-showcase/) · [AftabPulse](https://ramincsy.github.io/aftabpulse-showcase/)
 
@@ -29,19 +28,19 @@ Interactive UI catalogs on GitHub Pages: [Atlas](https://ramincsy.github.io/atla
 
 ### Focus
 
-- Organization-wide phone book / directory for holding IT and multi-company orgs
-- On-prem Persian RTL PWA — staff directory + full admin governance
-- Operational UI for staff, not a static Excel/PDF list or generic CRM contacts module
+- Single source of truth for employee profiles in multi-company holdings
+- On-prem Persian RTL PWA — staff directory + full operator governance
+- Always-current who’s-who vs stale Excel / intranet lists
 
 ---
 
 ### Key capabilities
 
-- **Staff directory** — search/filters; profile photo when uploaded (else gendered demo avatar); mobile & email when `show_mobile` / `show_email` allow
-- **Org announcements** — time-bounded holding notices in the staff experience
-- **Admin reports / monitoring** — usage analytics, search heat, device mix, activity audit
-- **People ops** — companies, employees, Excel import, photo upload + crop (max **2 MB**)
-- **Backup & Restore** — combined admin page (JSON export + gated Super Admin restore)
+- **Staff directory** — search & filters; photo on the card; mobile & email under privacy
+- **Holding notices** — time-bounded banners where people already look
+- **Usage monitoring** — views, search heat, device mix — prove the book is used
+- **People ops** — companies, employees, Excel intake, photo upload + crop (max **2 MB** → WebP)
+- **Backup & Restore** — one admin page (JSON export + gated Super Admin restore)
 - **Security** — Authenticator 2FA, recovery codes, separate admin login
 
 **Tour:** [18-screen catalog on GitHub Pages](https://ramincsy.github.io/enterprise-directory-showcase/)
@@ -50,7 +49,7 @@ Interactive UI catalogs on GitHub Pages: [Atlas](https://ramincsy.github.io/atla
 
 ### Who it’s for
 
-Holding IT teams that need an on-prem, privacy-controlled org phonebook with announcements and monitoring — without stitching spreadsheets or CRM contact modules.
+Holding IT that needs a trusted who’s-who across companies — on-prem, privacy-controlled — without spreadsheets or CRM contact modules.
 
 CTAs: [Contact](https://www.ramioo.com/contact) · [Project page](https://www.ramioo.com/projects/enterprise-directory)
 
@@ -60,7 +59,7 @@ CTAs: [Contact](https://www.ramioo.com/contact) · [Project page](https://www.ra
 
 ### تمرکز
 
-دفترچه تلفن / دایرکتوری سازمانی برای IT هلدینگ و چندشرکتی. آن‌پریم، فارسی و RTL به‌صورت PWA. تور ۱۸ صفحه‌ای: <a href="https://ramincsy.github.io/enterprise-directory-showcase/">کاتالوگ Pages</a>.
+چه کسی کجاست در هلدینگ — قابل‌جستجو، به‌روز، زیر کنترل IT. آن‌پریم، فارسی و راست‌به‌چپ به‌صورت PWA. تور ۱۸ صفحه‌ای: <a href="https://ramincsy.github.io/enterprise-directory-showcase/">کاتالوگ Pages</a>.
 
 صفحهٔ پروژه: <a href="https://www.ramioo.com/projects/enterprise-directory">https://www.ramioo.com/projects/enterprise-directory</a>
 
