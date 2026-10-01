@@ -6,7 +6,7 @@ Contacts across large organizations · دفترچه تلفن سازمانی
 
 <p>
   <a href="https://www.ramioo.com/projects/enterprise-directory"><img src="https://img.shields.io/badge/%E2%86%92%20Open%20project%20page-0A66C2?style=for-the-badge" alt="Open project page" /></a>
-  <a href="https://ramincsy.github.io/enterprise-directory-showcase/"><img src="https://img.shields.io/badge/17--screen%20Pages%20tour-111827?style=for-the-badge" alt="Pages tour" /></a>
+  <a href="https://ramincsy.github.io/enterprise-directory-showcase/"><img src="https://img.shields.io/badge/18--screen%20Pages%20tour-111827?style=for-the-badge" alt="Pages tour" /></a>
   <a href="https://github.com/ramincsy/ramioo-showcase"><img src="https://img.shields.io/badge/ramioo-showcase-hub-111827?style=for-the-badge" alt="hub" /></a>
 </p>
 
@@ -19,6 +19,9 @@ Contacts across large organizations · دفترچه تلفن سازمانی
 </div>
 
 > Public product window. Source code stays private.
+
+**Catalog language:** the [GitHub Pages tour](https://ramincsy.github.io/enterprise-directory-showcase/) is bilingual with an **EN | فارسی** toggle (default FA / RTL; last choice remembered in `localStorage`). English and Persian are never stacked in the same visible block.
+
 
 Interactive UI catalogs on GitHub Pages: [Atlas](https://ramincsy.github.io/atlas-showcase/) · [Taradod Nexus](https://ramincsy.github.io/taradod-nexus-showcase/) · [AftabPulse](https://ramincsy.github.io/aftabpulse-showcase/)
 
@@ -41,7 +44,7 @@ Interactive UI catalogs on GitHub Pages: [Atlas](https://ramincsy.github.io/atla
 - **Backup & Restore** — combined admin page (JSON export + gated Super Admin restore)
 - **Security** — Authenticator 2FA, recovery codes, separate admin login
 
-**Tour:** [17-screen catalog on GitHub Pages](https://ramincsy.github.io/enterprise-directory-showcase/)
+**Tour:** [18-screen catalog on GitHub Pages](https://ramincsy.github.io/enterprise-directory-showcase/)
 
 ---
 
@@ -57,7 +60,7 @@ CTAs: [Contact](https://www.ramioo.com/contact) · [Project page](https://www.ra
 
 ### تمرکز
 
-دفترچه تلفن / دایرکتوری سازمانی برای IT هلدینگ و چندشرکتی. آن‌پریم، فارسی و RTL به‌صورت PWA. تور ۱۷ صفحه‌ای: <a href="https://ramincsy.github.io/enterprise-directory-showcase/">کاتالوگ Pages</a>.
+دفترچه تلفن / دایرکتوری سازمانی برای IT هلدینگ و چندشرکتی. آن‌پریم، فارسی و RTL به‌صورت PWA. تور ۱۸ صفحه‌ای: <a href="https://ramincsy.github.io/enterprise-directory-showcase/">کاتالوگ Pages</a>.
 
 صفحهٔ پروژه: <a href="https://www.ramioo.com/projects/enterprise-directory">https://www.ramioo.com/projects/enterprise-directory</a>
 

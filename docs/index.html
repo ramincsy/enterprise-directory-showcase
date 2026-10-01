@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fa" dir="rtl">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Enterprise Directory — Product Catalog | دفترچه تلفن سازمانی · ramioo</title>
-  <meta name="description" content="Enterprise Directory catalog: staff photos, mobile & email on cards, org announcements, admin reports, and full governance. Real UI shots with anonymized demo data." />
+  <meta name="description" content="Enterprise Directory catalog: staff photos, mobile & email on cards, org announcements, admin reports, and full governance. Real UI shots with anonymized demo data. Bilingual EN | فارسی." />
   <meta name="theme-color" content="#0c1018" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -17,23 +17,37 @@
     }
     *{box-sizing:border-box} html{scroll-behavior:smooth}
     body{margin:0;font-family:Inter,system-ui,sans-serif;background:var(--bg);color:var(--text);font-size:15px;line-height:1.65;-webkit-font-smoothing:antialiased}
+    html[lang="fa"] body{font-family:Vazirmatn,Inter,system-ui,sans-serif}
     a{color:var(--accent2);text-decoration:none} a:hover{text-decoration:underline}
     img{max-width:100%;display:block}
     .wrap{width:min(1180px,calc(100% - 36px));margin-inline:auto}
+
+    /* Language: never stack EN+FA in the same visible block */
+    html[lang="en"] .lang-fa{display:none!important}
+    html[lang="fa"] .lang-en{display:none!important}
+
+    .topbar{position:sticky;top:0;z-index:40;background:rgba(7,9,13,.92);border-bottom:1px solid var(--line);backdrop-filter:blur(14px)}
+    .topbar .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 0;flex-wrap:wrap}
+    .brand{font-size:13px;font-weight:600;color:var(--muted);letter-spacing:.02em}
+    .lang-switch{display:inline-flex;border:1px solid var(--line);border-radius:999px;overflow:hidden;background:var(--card)}
+    .lang-switch button{appearance:none;border:0;background:transparent;color:var(--muted);font:inherit;font-size:13px;font-weight:600;padding:8px 14px;cursor:pointer}
+    .lang-switch button[aria-pressed="true"]{background:var(--accent);color:#0b1220}
+    .lang-switch button:hover{color:var(--text)}
+
     .banner{margin:0 0 28px;padding:14px 16px;border:1px solid rgba(96,165,250,.28);background:rgba(96,165,250,.06);border-radius:14px;font-size:13.5px}
     .banner b{color:var(--accent)}
-    header.hero{padding:80px 0 52px;border-bottom:1px solid var(--line);background:radial-gradient(900px 420px at 12% -20%,rgba(96,165,250,.16),transparent 55%),radial-gradient(700px 360px at 95% 0%,rgba(167,139,250,.10),transparent 50%),var(--bg2)}
+    header.hero{padding:56px 0 52px;border-bottom:1px solid var(--line);background:radial-gradient(900px 420px at 12% -20%,rgba(96,165,250,.16),transparent 55%),radial-gradient(700px 360px at 95% 0%,rgba(167,139,250,.10),transparent 50%),var(--bg2)}
     .kicker{color:var(--accent);font-size:11px;letter-spacing:.22em;font-weight:600;text-transform:uppercase;margin:0 0 16px}
-    h1{font-size:clamp(30px,4vw,44px);line-height:1.15;margin:0 0 16px;font-weight:700;letter-spacing:-.03em;max-width:24ch}
-    .lede{color:var(--muted);font-size:16.5px;line-height:1.75;max-width:760px;margin:0 0 12px}
-    .lede.fa{font-family:Vazirmatn,Inter,sans-serif;direction:rtl;max-width:760px;margin:0 0 24px}
+    html[lang="fa"] .kicker{letter-spacing:.06em;text-transform:none}
+    h1{font-size:clamp(30px,4vw,44px);line-height:1.2;margin:0 0 16px;font-weight:700;letter-spacing:-.03em;max-width:28ch}
+    html[lang="fa"] h1{letter-spacing:0;max-width:22ch}
+    .lede{color:var(--muted);font-size:16.5px;line-height:1.75;max-width:760px;margin:0 0 24px}
     .highlights{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:0 0 28px}
     .hl{display:flex;flex-direction:column;gap:8px;padding:18px 16px;border:1px solid var(--line);border-radius:16px;background:linear-gradient(180deg,rgba(96,165,250,.08),var(--card));color:var(--text);text-decoration:none;min-height:132px;transition:border-color .2s,transform .2s}
     .hl:hover{border-color:var(--accent);transform:translateY(-2px);text-decoration:none}
     .hl .ico{font-size:22px;line-height:1}
     .hl b{font-size:15px;font-weight:700;letter-spacing:-.01em}
     .hl span{color:var(--muted);font-size:12.5px;line-height:1.5}
-    .hl .fa{font-family:Vazirmatn,Inter,sans-serif;direction:rtl;color:var(--muted);font-size:12.5px;line-height:1.55}
     .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:8px}
     .stat{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 16px 16px}
     .stat b{display:block;font-size:18px;font-weight:700;color:var(--accent2)}
@@ -44,7 +58,7 @@
     .journey a.key{border-color:rgba(96,165,250,.45);background:rgba(96,165,250,.08)}
     .journey small{color:var(--accent);font-size:10px;font-weight:700;letter-spacing:.12em}
     .journey span{font-size:11.5px;line-height:1.35;color:var(--muted)}
-    nav.toc{position:sticky;top:0;z-index:20;background:rgba(7,9,13,.9);border-bottom:1px solid var(--line);backdrop-filter:blur(14px)}
+    nav.toc{position:sticky;top:49px;z-index:30;background:rgba(7,9,13,.9);border-bottom:1px solid var(--line);backdrop-filter:blur(14px)}
     nav.toc .wrap{display:flex;gap:8px;flex-wrap:wrap;padding:12px 0;align-items:center}
     .chip{border:1px solid var(--line);background:transparent;color:var(--text);padding:7px 12px;font:inherit;font-size:12px;font-weight:500;cursor:pointer;border-radius:999px;text-decoration:none}
     a.chip{display:inline-flex;align-items:center}
@@ -54,55 +68,48 @@
     .tile:hover{border-color:var(--accent);transform:translateY(-3px);box-shadow:0 12px 40px rgba(0,0,0,.35);text-decoration:none}
     .tile.key{border-color:rgba(96,165,250,.4)}
     .tile img{height:168px;width:100%;object-fit:cover;object-position:top}
-    .tile .num{position:absolute;top:10px;left:10px;width:28px;height:28px;display:flex;align-items:center;justify-content:center;background:var(--accent);color:#0b1220;font-size:11px;font-weight:800;border-radius:8px}
+    .tile .num{position:absolute;top:10px;inset-inline-start:10px;width:28px;height:28px;display:flex;align-items:center;justify-content:center;background:var(--accent);color:#0b1220;font-size:11px;font-weight:800;border-radius:8px}
     .tile .meta{padding:14px 16px 16px}
     .tile .tag{color:var(--accent);font-size:10px;font-weight:650;letter-spacing:.14em;text-transform:uppercase}
+    html[lang="fa"] .tile .tag{letter-spacing:.04em;text-transform:none}
     .tile h3{margin:6px 0 4px;font-size:15px;font-weight:600;color:var(--text)}
     .tile p{margin:0;color:var(--muted);font-size:12.5px;line-height:1.55}
     section.mod{padding:64px 0;border-top:1px solid var(--line)}
     .step-kicker{color:var(--accent);font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;margin:0 0 10px}
+    html[lang="fa"] .step-kicker{letter-spacing:.04em;text-transform:none}
     .mod h2{font-size:26px;margin:0 0 10px;font-weight:700;letter-spacing:-.02em}
-    .mod .why{color:var(--muted);margin:0 0 10px;max-width:780px}
-    .mod .why.fa{font-family:Vazirmatn,Inter,sans-serif;direction:rtl;margin-bottom:22px}
+    html[lang="fa"] .mod h2{letter-spacing:0}
+    .mod .why{color:var(--muted);margin:0 0 22px;max-width:780px}
     .pillrow{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 18px}
     .pill{display:inline-flex;align-items:center;gap:6px;padding:6px 12px;border-radius:999px;border:1px solid rgba(52,211,153,.35);background:rgba(52,211,153,.08);color:var(--ok);font-size:12px;font-weight:600}
     .shot{border:1px solid var(--line);border-radius:16px;overflow:hidden;background:#05070b;cursor:zoom-in}
     .shot img{width:100%;height:auto}
-    .note{margin-top:14px;color:var(--muted);font-size:13px;border-left:3px solid var(--accent);padding-left:12px}
-    .note.fa{font-family:Vazirmatn,Inter,sans-serif;direction:rtl;border-left:none;border-right:3px solid var(--accent);padding-left:0;padding-right:12px;margin-top:8px}
+    .note{margin-top:14px;color:var(--muted);font-size:13px;border-inline-start:3px solid var(--accent);padding-inline-start:12px}
+    .callout{margin-top:14px;padding:14px 16px;border:1px dashed rgba(96,165,250,.4);border-radius:12px;background:rgba(96,165,250,.06);color:var(--muted);font-size:13.5px}
+    .callout b{color:var(--text)}
     .next{margin-top:18px;font-size:13px}
     .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
-    .cards.six{grid-template-columns:repeat(3,1fr)}
     .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 16px}
     .card.key{border-color:rgba(96,165,250,.4);background:linear-gradient(180deg,rgba(96,165,250,.07),var(--card))}
     .card h3{margin:0 0 8px;font-size:15px}
     .card p{margin:0;color:var(--muted);font-size:13px}
     .card a{font-size:12.5px;font-weight:600}
-    .fa-block{font-family:Vazirmatn,Inter,sans-serif;direction:rtl}
     footer{border-top:1px solid var(--line);padding:40px 0 64px;color:var(--muted);font-size:13px}
     #lightbox{display:none;position:fixed;inset:0;z-index:100;background:rgba(0,0,0,.94);overflow:auto;cursor:zoom-out}
     #lightbox.open{display:block}
     #lbbar{position:sticky;top:0;display:flex;justify-content:space-between;gap:12px;align-items:center;padding:14px 20px;background:rgba(7,9,13,.92);border-bottom:1px solid var(--line);font-size:13px;color:var(--muted)}
     #lbbar b{color:var(--text)}
     #lightbox img{width:min(96vw,1280px);height:auto;margin:20px auto 48px;border-radius:10px}
-    @media(max-width:1000px){.highlights{grid-template-columns:1fr 1fr}}
-    @media(max-width:900px){.stats,.gallery,.cards,.cards.six{grid-template-columns:1fr 1fr} h1{max-width:none}}
-    @media(max-width:560px){.stats,.gallery,.cards,.cards.six,.journey,.highlights{grid-template-columns:1fr}}
-  
-    .fa-title{display:block;font-family:Vazirmatn,Inter,sans-serif;direction:rtl;margin:0 0 12px;font-size:clamp(28px,3.6vw,40px);line-height:1.25;letter-spacing:0;font-weight:700}
     .start-here{margin:0 0 22px;padding:16px;border:1px solid rgba(96,165,250,.35);border-radius:16px;background:rgba(96,165,250,.07)}
     .start-label{margin:0 0 12px;font-size:13px;font-weight:600;color:var(--accent)}
-    .fa-inline{font-family:Vazirmatn,Inter,sans-serif}
     .start-row{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px}
-    .start-row a{display:flex;flex-direction:column;gap:2px;padding:12px 10px;border-radius:12px;border:1px solid var(--line);background:var(--card);color:var(--text);text-decoration:none;min-height:78px}
+    .start-row a{display:flex;flex-direction:column;gap:2px;padding:12px 10px;border-radius:12px;border:1px solid var(--line);background:var(--card);color:var(--text);text-decoration:none;min-height:70px}
     .start-row a:hover{border-color:var(--accent);text-decoration:none}
     .start-row small{color:var(--accent);font-size:10px;font-weight:700;letter-spacing:.12em}
     .start-row span{font-size:12.5px;font-weight:600}
-    .start-row em{font-style:normal;font-family:Vazirmatn,Inter,sans-serif;direction:rtl;color:var(--muted);font-size:11.5px}
     .buyer,.market{margin:0 0 22px;padding:20px 18px;border:1px solid var(--line);border-radius:16px;background:var(--card)}
     .buyer-h{margin:0 0 10px;font-size:18px;font-weight:700}
-    .buyer-en{margin:0 0 8px;color:var(--muted);font-size:14px;max-width:820px}
-    .buyer-fa{margin:0 0 14px;color:var(--muted);font-size:14px;font-family:Vazirmatn,Inter,sans-serif;direction:rtl;max-width:820px}
+    .buyer-p{margin:0 0 14px;color:var(--muted);font-size:14px;max-width:820px}
     .cta-row{display:flex;flex-wrap:wrap;gap:10px;margin:0}
     a.cta{display:inline-flex;align-items:center;padding:10px 16px;border-radius:999px;background:var(--accent);color:#0b1220;font-weight:700;font-size:13px;text-decoration:none}
     a.cta:hover{text-decoration:none;filter:brightness(1.05)}
@@ -111,23 +118,36 @@
     .mcard{padding:14px;border:1px solid var(--line);border-radius:12px;background:rgba(7,9,13,.35)}
     .mcard h3{margin:0 0 6px;font-size:14px}
     .mcard p{margin:0;color:var(--muted);font-size:12.5px;line-height:1.5}
-    @media(max-width:900px){.start-row,.market-cards{grid-template-columns:1fr 1fr}}
-    @media(max-width:560px){.start-row,.market-cards{grid-template-columns:1fr}}
-
+    @media(max-width:1000px){.highlights{grid-template-columns:1fr 1fr}}
+    @media(max-width:900px){.stats,.gallery,.cards,.journey,.start-row,.market-cards{grid-template-columns:1fr 1fr} h1{max-width:none}}
+    @media(max-width:560px){.stats,.gallery,.cards,.journey,.highlights,.start-row,.market-cards{grid-template-columns:1fr}}
   </style>
 </head>
 <body>
+  <div class="topbar">
+    <div class="wrap">
+      <span class="brand"><span class="lang-en">Enterprise Directory · product catalog</span><span class="lang-fa">دفترچه تلفن سازمانی · کاتالوگ محصول</span></span>
+      <div class="lang-switch" role="group" aria-label="Language">
+        <button type="button" id="btn-en" data-set-lang="en" aria-pressed="false">EN</button>
+        <button type="button" id="btn-fa" data-set-lang="fa" aria-pressed="true">فارسی</button>
+      </div>
+    </div>
+  </div>
+
   <header class="hero">
     <div class="wrap">
-      <p class="kicker">دفترچه تلفن سازمانی · Enterprise Directory · تور ۱۷ صفحه‌ای · Staff + Admin</p>
-      <h1><span class="fa-title">دفترچه سازمانی با عکس، موبایل، اطلاعیه و گزارش ادمین</span>
-        Photos, mobile &amp; email, announcements, and admin reports — in one org phonebook</h1>
-      <p class="lede">
+      <p class="kicker lang-en">Enterprise Directory · 18-screen tour · Staff + Admin</p>
+      <p class="kicker lang-fa">دفترچه تلفن سازمانی · تور ۱۸ صفحه‌ای · کاربری و ادمین</p>
+
+      <h1 class="lang-en">Photos, mobile &amp; email, announcements, and admin reports — in one org phonebook</h1>
+      <h1 class="lang-fa">دفترچه سازمانی با عکس، موبایل، اطلاعیه و گزارش ادمین</h1>
+
+      <p class="lede lang-en">
         Colleagues open contact cards with a <strong>profile photo when uploaded</strong> (else a gendered demo avatar), plus <strong>mobile</strong> and <strong>email</strong> when privacy toggles allow;
         the holding publishes <strong>org announcements</strong>; operators run <strong>admin reports</strong>, activity audit,
         Excel import, backup &amp; restore, theme, and 2FA. Frames are <strong>real product pages</strong> with sensitive rows anonymized.
       </p>
-      <p class="lede fa">
+      <p class="lede lang-fa">
         همکاران روی کارت‌ها <strong>عکس پروفایل (در صورت آپلود)</strong> یا آواتار دموی خانم/آقا می‌بینند؛ موبایل و ایمیل با کنترل نمایش؛
         هلدینگ <strong>اطلاعیه سازمانی</strong> منتشر می‌کند؛ ادمین‌ها <strong>گزارش و مانیتورینگ</strong>، لاگ فعالیت،
         ورود اکسل، بکاپ و بازیابی، تم و ۲FA را مدیریت می‌کنند. اسکرین‌ها از UI واقعی‌اند با دادهٔ دمو.
@@ -136,61 +156,73 @@
       <div class="highlights" aria-label="Key capabilities">
         <a class="hl" href="#s-16">
           <span class="ico" aria-hidden="true">📷</span>
-          <b>Personnel photos</b>
-          <span>Upload JPEG/PNG/WebP (max 2&nbsp;MB), crop &amp; zoom, circular preview — on the staff card when a photo is uploaded.</span>
-          <span class="fa">آپلود عکس (حداکثر ۲MB)، برش و زوم، پیش‌نمایش دایره‌ای — روی کارت وقتی عکس آپلود شده باشد.</span>
+          <b class="lang-en">Personnel photos</b>
+          <b class="lang-fa">عکس پرسنل</b>
+          <span class="lang-en">Upload JPEG/PNG/WebP (max 2&nbsp;MB), crop &amp; zoom, circular preview — on the staff card when a photo is uploaded.</span>
+          <span class="lang-fa">آپلود JPEG/PNG/WebP (حداکثر ۲&nbsp;MB)، برش و زوم، پیش‌نمایش دایره‌ای — روی کارت وقتی عکس آپلود شده باشد.</span>
         </a>
         <a class="hl" href="#s-01">
           <span class="ico" aria-hidden="true">📱</span>
-          <b>Mobile &amp; email</b>
-          <span>Contact cards expose email and mobile actions when visibility allows — not just extension numbers.</span>
-          <span class="fa">روی کارت تماس، ایمیل و موبایل (با کنترل نمایش) در کنار داخلی دیده می‌شود.</span>
+          <b class="lang-en">Mobile &amp; email</b>
+          <b class="lang-fa">موبایل و ایمیل</b>
+          <span class="lang-en">Contact cards expose email and mobile actions when visibility allows — not just extension numbers.</span>
+          <span class="lang-fa">روی کارت تماس، ایمیل و موبایل (با کنترل نمایش) در کنار داخلی دیده می‌شود.</span>
         </a>
         <a class="hl" href="#s-09">
           <span class="ico" aria-hidden="true">📢</span>
-          <b>Org announcements</b>
-          <span>Time-bounded notices published for the holding and surfaced in the staff directory experience.</span>
-          <span class="fa">اطلاعیه زمان‌دار برای کل هلدینگ؛ در تجربهٔ کاربری دفترچه دیده می‌شود.</span>
+          <b class="lang-en">Org announcements</b>
+          <b class="lang-fa">اطلاعیه سازمانی</b>
+          <span class="lang-en">Time-bounded notices published for the holding and surfaced in the staff directory experience.</span>
+          <span class="lang-fa">اطلاعیه زمان‌دار برای هلدینگ؛ در تجربهٔ کاربری دفترچه دیده می‌شود.</span>
         </a>
         <a class="hl" href="#s-08">
           <span class="ico" aria-hidden="true">📊</span>
-          <b>Admin reports</b>
-          <span>Usage analytics, search heat, device mix — plus activity audit and dashboard KPIs for operators.</span>
-          <span class="fa">گزارش مصرف، جستجوهای پرتکرار، ترکیب دستگاه؛ به‌همراه لاگ فعالیت و داشبورد.</span>
+          <b class="lang-en">Admin reports</b>
+          <b class="lang-fa">گزارش ادمین</b>
+          <span class="lang-en">Usage analytics, search heat, device mix — plus activity audit and dashboard KPIs for operators.</span>
+          <span class="lang-fa">گزارش مصرف، جستجوهای پرتکرار، ترکیب دستگاه؛ به‌همراه لاگ فعالیت و داشبورد.</span>
         </a>
       </div>
 
       <div class="start-here" id="start">
-        <p class="start-label"><span class="fa-inline">شروع از اینجا</span> · Start here — 5 key frames</p>
+        <p class="start-label lang-en">Start here — 5 key frames</p>
+        <p class="start-label lang-fa">شروع از اینجا — ۵ فریم کلیدی</p>
         <div class="start-row">
-          <a href="#s-01"><small>01</small><span>Directory</span><em>دفترچه</em></a>
-          <a href="#s-09"><small>09</small><span>Announcements</span><em>اطلاعیه</em></a>
-          <a href="#s-08"><small>08</small><span>Monitoring</span><em>مانیتورینگ</em></a>
-          <a href="#s-16"><small>16</small><span>Photo upload</span><em>آپلود عکس</em></a>
-          <a href="#s-17"><small>17</small><span>Crop</span><em>برش</em></a>
+          <a href="#s-01"><small>01</small><span class="lang-en">Directory</span><span class="lang-fa">دفترچه</span></a>
+          <a href="#s-09"><small>09</small><span class="lang-en">Announcements</span><span class="lang-fa">اطلاعیه</span></a>
+          <a href="#s-08"><small>08</small><span class="lang-en">Monitoring</span><span class="lang-fa">مانیتورینگ</span></a>
+          <a href="#s-16"><small>16</small><span class="lang-en">Photo upload</span><span class="lang-fa">آپلود عکس</span></a>
+          <a href="#s-17"><small>17</small><span class="lang-en">Crop</span><span class="lang-fa">برش</span></a>
         </div>
       </div>
 
       <section class="buyer" id="buyer" aria-label="Who it's for">
-        <h2 class="buyer-h">Who it's for / مخاطب</h2>
-        <p class="buyer-en">Built for <strong>holding IT</strong> and multi-company orgs that need an <strong>on-prem Persian RTL PWA</strong> phonebook — not a cloud CRM contacts module. Privacy toggles (<code>show_mobile</code> / <code>show_email</code>) keep sensitive fields under admin control.</p>
-        <p class="buyer-fa">برای <strong>IT هلدینگ</strong> و سازمان‌های چندشرکتی که به دفترچهٔ <strong>آن‌پریم، فارسی و RTL به‌صورت PWA</strong> نیاز دارند — نه ماژول مخاطبین CRM ابری. کنترل نمایش موبایل/ایمیل در دست ادمین است.</p>
+        <h2 class="buyer-h lang-en">Who it's for</h2>
+        <h2 class="buyer-h lang-fa">مخاطب</h2>
+        <p class="buyer-p lang-en">Built for <strong>holding IT</strong> and multi-company orgs that need an <strong>on-prem Persian RTL PWA</strong> phonebook — not a cloud CRM contacts module. Privacy toggles (<code>show_mobile</code> / <code>show_email</code>) keep sensitive fields under admin control.</p>
+        <p class="buyer-p lang-fa">برای <strong>IT هلدینگ</strong> و سازمان‌های چندشرکتی که به دفترچهٔ <strong>آن‌پریم، فارسی و RTL به‌صورت PWA</strong> نیاز دارند — نه ماژول مخاطبین CRM ابری. کنترل نمایش موبایل/ایمیل در دست ادمین است.</p>
         <p class="cta-row">
-          <a class="cta" href="https://www.ramioo.com/contact">Contact / تماس</a>
-          <a class="cta ghost" href="https://www.ramioo.com/projects/enterprise-directory">Project page</a>
+          <a class="cta" href="https://www.ramioo.com/contact"><span class="lang-en">Contact</span><span class="lang-fa">تماس</span></a>
+          <a class="cta ghost" href="https://www.ramioo.com/projects/enterprise-directory"><span class="lang-en">Project page</span><span class="lang-fa">صفحهٔ پروژه</span></a>
         </p>
       </section>
 
       <section class="market" id="market" aria-label="Market positioning">
-        <h2 class="buyer-h">Where it sits / جایگاه</h2>
-        <div class="market-cards">
+        <h2 class="buyer-h lang-en">Where it sits</h2>
+        <h2 class="buyer-h lang-fa">جایگاه</h2>
+        <div class="market-cards lang-en">
           <div class="mcard"><h3>vs Excel / static PDF</h3><p>Live search, filters, multi-company tree, and operator governance — without file drift or reprint cycles.</p></div>
           <div class="mcard"><h3>vs generic CRM contacts</h3><p>Org phonebook UX for staff (RTL PWA, extensions, privacy toggles), not sales pipeline clutter.</p></div>
           <div class="mcard"><h3>On-prem holding fit</h3><p>Announcements, usage monitoring, Excel import, backup &amp; restore, and 2FA for IT-owned deployments.</p></div>
         </div>
+        <div class="market-cards lang-fa">
+          <div class="mcard"><h3>در برابر اکسل / PDF ثابت</h3><p>جستجوی زنده، فیلتر، درخت چندشرکتی و حاکمیت اپراتور — بدون پراکندگی فایل یا چرخهٔ چاپ مجدد.</p></div>
+          <div class="mcard"><h3>در برابر مخاطبین CRM عمومی</h3><p>UX دفترچهٔ سازمانی برای همکاران (PWA راست‌به‌چپ، داخلی، کنترل حریم) — نه شلوغی پایپ‌لاین فروش.</p></div>
+          <div class="mcard"><h3>مناسب هلدینگ آن‌پریم</h3><p>اطلاعیه، مانیتورینگ مصرف، ورود اکسل، بکاپ و بازیابی، و ۲FA برای استقرار تحت مالکیت IT.</p></div>
+        </div>
       </section>
 
-      <div class="banner">
+      <div class="banner lang-en">
         <b>Anonymized deployment shots.</b>
         Names, companies, phones, emails, and IPs were replaced with fictional demo data in the browser before capture — no blur, no server changes.
         UI structure, feature set, and navigation are real. Same catalog pattern as
@@ -198,266 +230,356 @@
         <a href="https://ramincsy.github.io/aftabpulse-showcase/">AftabPulse</a>,
         <a href="https://ramincsy.github.io/taradod-nexus-showcase/">Taradod Nexus</a>.
       </div>
+      <div class="banner lang-fa">
+        <b>اسکرین‌های ناشناس‌سازی‌شده.</b>
+        نام‌ها، شرکت‌ها، تلفن‌ها، ایمیل‌ها و IPها قبل از اسکرین در مرورگر با دادهٔ دموی خیالی عوض شده‌اند — بدون بلور و بدون تغییر سرور.
+        ساختار UI، قابلیت‌ها و ناوبری واقعی‌اند. همان الگوی کاتالوگ
+        <a href="https://ramincsy.github.io/atlas-showcase/">Atlas</a>،
+        <a href="https://ramincsy.github.io/aftabpulse-showcase/">AftabPulse</a> و
+        <a href="https://ramincsy.github.io/taradod-nexus-showcase/">Taradod Nexus</a>.
+      </div>
+
       <nav class="journey" aria-label="Product tour">
-        <a class="key" href="#s-01"><small>01</small><span>Directory · mobile/email</span></a>
-        <a href="#s-02"><small>02</small><span>Admin login</span></a>
-        <a href="#s-03"><small>03</small><span>Dashboard</span></a>
-        <a href="#s-04"><small>04</small><span>Companies</span></a>
-        <a href="#s-05"><small>05</small><span>Employees</span></a>
-        <a href="#s-06"><small>06</small><span>Admins</span></a>
-        <a href="#s-07"><small>07</small><span>Activity</span></a>
-        <a class="key" href="#s-08"><small>08</small><span>Reports / monitoring</span></a>
-        <a class="key" href="#s-09"><small>09</small><span>Announcements</span></a>
-        <a href="#s-10"><small>10</small><span>Excel import</span></a>
-        <a href="#s-11"><small>11</small><span>Backup &amp; Restore</span></a>
-        <a href="#s-12"><small>12</small><span>Backup &amp; Restore</span></a>
-        <a href="#s-13"><small>13</small><span>Security / 2FA</span></a>
-        <a href="#s-14"><small>14</small><span>Visual theme</span></a>
-        <a href="#s-15"><small>15</small><span>Password</span></a>
-        <a class="key" href="#s-16"><small>16</small><span>Edit + photo upload</span></a>
-        <a class="key" href="#s-17"><small>17</small><span>Photo crop</span></a>
+        <a class="key" href="#s-01"><small>01</small><span class="lang-en">Directory · mobile/email</span><span class="lang-fa">دفترچه · موبایل/ایمیل</span></a>
+        <a href="#s-02"><small>02</small><span class="lang-en">Admin login</span><span class="lang-fa">ورود ادمین</span></a>
+        <a href="#s-03"><small>03</small><span class="lang-en">Dashboard</span><span class="lang-fa">داشبورد</span></a>
+        <a href="#s-04"><small>04</small><span class="lang-en">Companies</span><span class="lang-fa">شرکت‌ها</span></a>
+        <a href="#s-05"><small>05</small><span class="lang-en">Employees</span><span class="lang-fa">کارمندان</span></a>
+        <a href="#s-06"><small>06</small><span class="lang-en">Admins</span><span class="lang-fa">ادمین‌ها</span></a>
+        <a href="#s-07"><small>07</small><span class="lang-en">Activity</span><span class="lang-fa">فعالیت</span></a>
+        <a class="key" href="#s-08"><small>08</small><span class="lang-en">Reports / monitoring</span><span class="lang-fa">گزارش / مانیتورینگ</span></a>
+        <a class="key" href="#s-09"><small>09</small><span class="lang-en">Announcements</span><span class="lang-fa">اطلاعیه‌ها</span></a>
+        <a class="key" href="#s-18"><small>18</small><span class="lang-en">Staff announce banner</span><span class="lang-fa">بنر اطلاعیه کاربری</span></a>
+        <a href="#s-10"><small>10</small><span class="lang-en">Excel import</span><span class="lang-fa">ورود اکسل</span></a>
+        <a href="#s-11"><small>11</small><span class="lang-en">Backup · export</span><span class="lang-fa">بکاپ · خروجی</span></a>
+        <a href="#s-12"><small>12</small><span class="lang-en">Restore · gated</span><span class="lang-fa">بازیابی · محافظت‌شده</span></a>
+        <a href="#s-13"><small>13</small><span class="lang-en">Security / 2FA</span><span class="lang-fa">امنیت / ۲FA</span></a>
+        <a href="#s-14"><small>14</small><span class="lang-en">Visual theme</span><span class="lang-fa">تم بصری</span></a>
+        <a href="#s-15"><small>15</small><span class="lang-en">Password</span><span class="lang-fa">رمز عبور</span></a>
+        <a class="key" href="#s-16"><small>16</small><span class="lang-en">Edit + photo upload</span><span class="lang-fa">ویرایش + آپلود عکس</span></a>
+        <a class="key" href="#s-17"><small>17</small><span class="lang-en">Photo crop</span><span class="lang-fa">برش عکس</span></a>
       </nav>
+
       <div class="stats">
-        <div class="stat"><b>17 screens</b><span>Staff + Admin tour</span></div>
-        <div class="stat"><b>Staff + Admin</b><span>Directory &amp; governance</span></div>
-        <div class="stat"><b>2FA</b><span>Authenticator + recovery</span></div>
-        <div class="stat"><b>On-prem</b><span>Persian RTL PWA</span></div>
+        <div class="stat"><b class="lang-en">18 screens</b><b class="lang-fa">۱۸ صفحه</b><span class="lang-en">Staff + Admin tour</span><span class="lang-fa">تور کاربری و ادمین</span></div>
+        <div class="stat"><b class="lang-en">Staff + Admin</b><b class="lang-fa">کاربری + ادمین</b><span class="lang-en">Directory &amp; governance</span><span class="lang-fa">دفترچه و حاکمیت</span></div>
+        <div class="stat"><b>2FA</b><span class="lang-en">Authenticator + recovery</span><span class="lang-fa">Authenticator و بازیابی</span></div>
+        <div class="stat"><b class="lang-en">On-prem</b><b class="lang-fa">آن‌پریم</b><span class="lang-en">Persian RTL PWA</span><span class="lang-fa">PWA فارسی RTL</span></div>
       </div>
     </div>
   </header>
 
   <nav class="toc">
     <div class="wrap">
-      <a class="chip key" href="#start">Start here</a>
-      <a class="chip key" href="#s-01">01 دفترچه</a>
-      <a class="chip key" href="#s-08">08 مانیتورینگ</a>
-      <a class="chip key" href="#s-09">09 اطلاعیه</a>
-      <a class="chip key" href="#s-16">16 عکس</a>
-      <a class="chip key" href="#s-17">17 برش</a>
-      <a class="chip" href="#buyer">Buyer</a>
-      <a class="chip" href="#s-03">03 Dashboard</a>
-      <a class="chip" href="#s-11">11–12 Backup</a>
-      <a class="chip" href="#s-13">13 Security</a>
-      <a class="chip" href="#stack">Capabilities</a>
+      <a class="chip key" href="#start"><span class="lang-en">Start here</span><span class="lang-fa">شروع</span></a>
+      <a class="chip key" href="#s-01"><span class="lang-en">01 Directory</span><span class="lang-fa">۰۱ دفترچه</span></a>
+      <a class="chip key" href="#s-08"><span class="lang-en">08 Monitoring</span><span class="lang-fa">۰۸ مانیتورینگ</span></a>
+      <a class="chip key" href="#s-09"><span class="lang-en">09 Announcements</span><span class="lang-fa">۰۹ اطلاعیه</span></a>
+      <a class="chip key" href="#s-18"><span class="lang-en">18 Staff banner</span><span class="lang-fa">۱۸ بنر کاربری</span></a>
+      <a class="chip key" href="#s-16"><span class="lang-en">16 Photo</span><span class="lang-fa">۱۶ عکس</span></a>
+      <a class="chip key" href="#s-17"><span class="lang-en">17 Crop</span><span class="lang-fa">۱۷ برش</span></a>
+      <a class="chip" href="#buyer"><span class="lang-en">Buyer</span><span class="lang-fa">مخاطب</span></a>
+      <a class="chip" href="#s-03"><span class="lang-en">03 Dashboard</span><span class="lang-fa">۰۳ داشبورد</span></a>
+      <a class="chip" href="#s-11"><span class="lang-en">11–12 Backup</span><span class="lang-fa">۱۱–۱۲ بکاپ</span></a>
+      <a class="chip" href="#s-13"><span class="lang-en">13 Security</span><span class="lang-fa">۱۳ امنیت</span></a>
+      <a class="chip" href="#stack"><span class="lang-en">Capabilities</span><span class="lang-fa">قابلیت‌ها</span></a>
       <a class="chip" href="https://github.com/ramincsy/enterprise-directory-showcase">GitHub</a>
     </div>
   </nav>
 
   <div class="wrap"><div class="gallery" id="grid"></div></div>
-
   <section class="mod" id="s-01"><div class="wrap">
-    <p class="step-kicker">01 / 17 · Staff · Key capability</p>
-    <h2>Staff directory — search, cards, mobile &amp; email</h2>
-    <div class="pillrow">
-      <span class="pill">Profile photo when uploaded</span>
-      <span class="pill">Mobile action</span>
-      <span class="pill">Email action</span>
-      <span class="pill">Extension · search · filters</span>
-    </div>
-    <p class="why">Search by name, department, or email; filter by company and department. Each card shows a profile photo when uploaded (otherwise a gendered demo avatar), the extension, and — when <code>show_mobile</code> / <code>show_email</code> allow — one-tap <strong>email</strong> and <strong>mobile</strong> actions. Dark mode and language live in the product chrome.</p>
-    <p class="why fa">جستجو با نام، بخش یا ایمیل؛ فیلتر شرکت و بخش. روی کارت: <strong>عکس پروفایل در صورت آپلود</strong> (وگرنه آواتار دموی خانم/آقا)، داخلی، و با کنترل نمایش، اکشن <strong>ایمیل</strong> و <strong>موبایل</strong>. تم تیره و زبان در خود محصول است.</p>
+    <p class="step-kicker lang-en">01 / 17 · Staff · Key capability</p>
+    <p class="step-kicker lang-fa">۰۱ / ۱۷ · کاربری · قابلیت کلیدی</p>
+    <h2 class="lang-en">Staff directory — search, cards, mobile &amp; email</h2>
+    <h2 class="lang-fa">دفترچه کاربری — جستجو، کارت، موبایل و ایمیل</h2>
+    <div class="pillrow"><span class="pill lang-en">Profile photo when uploaded</span><span class="pill lang-fa">عکس پروفایل در صورت آپلود</span><span class="pill lang-en">Mobile action</span><span class="pill lang-fa">اکشن موبایل</span><span class="pill lang-en">Email action</span><span class="pill lang-fa">اکشن ایمیل</span><span class="pill lang-en">Extension · search · filters</span><span class="pill lang-fa">داخلی · جستجو · فیلتر</span></div>
+    <p class="why lang-en">Search by name, department, or email; filter by company and department. Each card shows a profile photo when uploaded (otherwise a gendered demo avatar), the extension, and — when <code>show_mobile</code> / <code>show_email</code> allow — one-tap <strong>email</strong> and <strong>mobile</strong> actions. Dark mode and language live in the product chrome.</p>
+    <p class="why lang-fa">جستجو با نام، بخش یا ایمیل؛ فیلتر شرکت و بخش. روی کارت: <strong>عکس پروفایل در صورت آپلود</strong> (وگرنه آواتار دموی خانم/آقا)، داخلی، و با کنترل نمایش، اکشن <strong>ایمیل</strong> و <strong>موبایل</strong>. تم تیره و زبان در خود محصول است.</p>
     <div class="shot" data-full="shots/01-directory.jpg"><img src="shots/01-directory.jpg" alt="01 — Staff directory with photos, mobile and email" /></div>
-    <p class="note">Card identities swapped to fictional demo people/companies before capture. Look for photo avatars plus email/mobile controls on the cards.</p>
-    <p class="note fa">هویت روی کارت‌ها قبل از اسکرین با دادهٔ دمو عوض شده است. آواتار عکس و کنترل ایمیل/موبایل را روی کارت‌ها ببینید.</p>
-    <p class="next"><a href="#s-02">Next · 02 Admin login →</a> · <a href="#s-16">Jump · upload photo →</a></p>
+    <p class="note lang-en">Card identities swapped to fictional demo people/companies before capture. Look for photo avatars plus email/mobile controls on the cards.</p>
+    <p class="note lang-fa">هویت روی کارت‌ها قبل از اسکرین با دادهٔ دمو عوض شده است. آواتار عکس و کنترل ایمیل/موبایل را روی کارت‌ها ببینید.</p>
+    <p class="next"><a href="#s-02"><span class="lang-en">Next · 02 Admin login →</span><span class="lang-fa">بعدی · ۰۲ ورود ادمین ←</span></a> · <a href="#s-16"><span class="lang-en">Jump · upload photo →</span><span class="lang-fa">پرش · آپلود عکس ←</span></a></p>
   </div></section>
 
   <section class="mod" id="s-02"><div class="wrap">
-    <p class="step-kicker">02 / 17 · Access</p>
-    <h2>Admin login — operators only</h2>
-    <p class="why">Separate management entry so day-to-day callers never land on governance tools.</p>
-    <p class="why fa">ورود جدا برای اپراتورها تا همکاران روزمره وارد ابزار حاکمیتی نشوند.</p>
+    <p class="step-kicker lang-en">02 / 17 · Access</p>
+    <p class="step-kicker lang-fa">۰۲ / ۱۷ · دسترسی</p>
+    <h2 class="lang-en">Admin login — operators only</h2>
+    <h2 class="lang-fa">ورود ادمین — فقط اپراتورها</h2>
+    
+    <p class="why lang-en">Separate management entry so day-to-day callers never land on governance tools.</p>
+    <p class="why lang-fa">ورود جدا برای اپراتورها تا همکاران روزمره وارد ابزار حاکمیتی نشوند.</p>
     <div class="shot" data-full="shots/02-admin-login.jpg"><img src="shots/02-admin-login.jpg" alt="02 — Admin login" /></div>
-    <p class="next"><a href="#s-03">Next · 03 Dashboard →</a></p>
+    <p class="next"><a href="#s-03"><span class="lang-en">Next · 03 Dashboard →</span><span class="lang-fa">بعدی · ۰۳ داشبورد ←</span></a></p>
   </div></section>
 
   <section class="mod" id="s-03"><div class="wrap">
-    <p class="step-kicker">03 / 17 · Admin</p>
-    <h2>Dashboard — holding health and quick actions</h2>
-    <p class="why">KPIs for companies, total users, active vs hidden; tiles into company / employee / admin management; recent sensitive activity — the first stop before deeper admin reports.</p>
-    <p class="why fa">شاخص شرکت، کاربر، فعال/مخفی؛ میانبر مدیریت شرکت/کاربر/ادمین؛ فعالیت‌های حساس اخیر — نقطهٔ شروع گزارش‌های ادمین.</p>
+    <p class="step-kicker lang-en">03 / 17 · Admin</p>
+    <p class="step-kicker lang-fa">۰۳ / ۱۷ · ادمین</p>
+    <h2 class="lang-en">Dashboard — holding health and quick actions</h2>
+    <h2 class="lang-fa">داشبورد — وضعیت هلدینگ و میانبرها</h2>
+    
+    <p class="why lang-en">KPIs for companies, total users, active vs hidden; tiles into company / employee / admin management; recent sensitive activity — the first stop before deeper admin reports.</p>
+    <p class="why lang-fa">شاخص شرکت، کاربر، فعال/مخفی؛ میانبر مدیریت شرکت/کاربر/ادمین؛ فعالیت‌های حساس اخیر — نقطهٔ شروع گزارش‌های ادمین.</p>
     <div class="shot" data-full="shots/03-dashboard.jpg"><img src="shots/03-dashboard.jpg" alt="03 — Admin dashboard" /></div>
-    <p class="next"><a href="#s-04">Next · 04 Companies →</a></p>
+    <p class="next"><a href="#s-04"><span class="lang-en">Next · 04 Companies →</span><span class="lang-fa">بعدی · ۰۴ شرکت‌ها ←</span></a></p>
   </div></section>
 
   <section class="mod" id="s-04"><div class="wrap">
-    <p class="step-kicker">04 / 17 · Admin</p>
-    <h2>Companies — multi-company tree and phone prefixes</h2>
-    <p class="why">Create and edit holding companies, bilingual names, and phone prefixes that prepend to employee extensions.</p>
-    <p class="why fa">ایجاد و ویرایش شرکت‌های هلدینگ، نام دوزبانه، و پیش‌شماره‌ای که به داخلی کارمند اضافه می‌شود.</p>
+    <p class="step-kicker lang-en">04 / 17 · Admin</p>
+    <p class="step-kicker lang-fa">۰۴ / ۱۷ · ادمین</p>
+    <h2 class="lang-en">Companies — multi-company tree and phone prefixes</h2>
+    <h2 class="lang-fa">شرکت‌ها — درخت چندشرکتی و پیش‌شماره</h2>
+    
+    <p class="why lang-en">Create and edit holding companies, bilingual names, and phone prefixes that prepend to employee extensions.</p>
+    <p class="why lang-fa">ایجاد و ویرایش شرکت‌های هلدینگ، نام دوزبانه، و پیش‌شماره‌ای که به داخلی کارمند اضافه می‌شود.</p>
     <div class="shot" data-full="shots/04-companies.jpg"><img src="shots/04-companies.jpg" alt="04 — Companies" /></div>
-    <p class="next"><a href="#s-05">Next · 05 Employees →</a></p>
+    <p class="next"><a href="#s-05"><span class="lang-en">Next · 05 Employees →</span><span class="lang-fa">بعدی · ۰۵ کارمندان ←</span></a></p>
   </div></section>
 
   <section class="mod" id="s-05"><div class="wrap">
-    <p class="step-kicker">05 / 17 · Admin</p>
-    <h2>Employees — add, edit, hide, dedupe</h2>
-    <p class="why">Full people table with filters, new-user flow, duplicate management, and per-row edit / visibility / delete. Edit opens photo upload (screens 16–17).</p>
-    <p class="why fa">جدول کامل افراد با فیلتر، کاربر جدید، مدیریت تکراری‌ها، و اکشن ویرایش / نمایش / حذف. از ویرایش به آپلود عکس می‌روید (صفحات ۱۶–۱۷).</p>
+    <p class="step-kicker lang-en">05 / 17 · Admin</p>
+    <p class="step-kicker lang-fa">۰۵ / ۱۷ · ادمین</p>
+    <h2 class="lang-en">Employees — add, edit, hide, dedupe</h2>
+    <h2 class="lang-fa">کارمندان — افزودن، ویرایش، مخفی، تکراری</h2>
+    
+    <p class="why lang-en">Full people table with filters, new-user flow, duplicate management, and per-row edit / visibility / delete. Edit opens photo upload (screens 16–17).</p>
+    <p class="why lang-fa">جدول کامل افراد با فیلتر، کاربر جدید، مدیریت تکراری‌ها، و اکشن ویرایش / نمایش / حذف. از ویرایش به آپلود عکس می‌روید (صفحات ۱۶–۱۷).</p>
     <div class="shot" data-full="shots/05-employees.jpg"><img src="shots/05-employees.jpg" alt="05 — Employees" /></div>
-    <p class="next"><a href="#s-06">Next · 06 Admins →</a> · <a href="#s-16">Jump · photo upload →</a></p>
+    <p class="next"><a href="#s-06"><span class="lang-en">Next · 06 Admins →</span><span class="lang-fa">بعدی · ۰۶ ادمین‌ها ←</span></a> · <a href="#s-16"><span class="lang-en">Jump · photo upload →</span><span class="lang-fa">پرش · آپلود عکس ←</span></a></p>
   </div></section>
 
   <section class="mod" id="s-06"><div class="wrap">
-    <p class="step-kicker">06 / 17 · Admin</p>
-    <h2>Admin accounts — Super Admin controls</h2>
-    <p class="why">Manage operator accounts; Super Admin can add/remove admins and reset 2FA or passwords.</p>
-    <p class="why fa">مدیریت حساب اپراتورها؛ سوپرادمین می‌تواند ادمین اضافه/حذف کند و ۲FA یا رمز را ریست کند.</p>
+    <p class="step-kicker lang-en">06 / 17 · Admin</p>
+    <p class="step-kicker lang-fa">۰۶ / ۱۷ · ادمین</p>
+    <h2 class="lang-en">Admin accounts — Super Admin controls</h2>
+    <h2 class="lang-fa">حساب ادمین — کنترل سوپرادمین</h2>
+    
+    <p class="why lang-en">Manage operator accounts; Super Admin can add/remove admins and reset 2FA or passwords.</p>
+    <p class="why lang-fa">مدیریت حساب اپراتورها؛ سوپرادمین می‌تواند ادمین اضافه/حذف کند و ۲FA یا رمز را ریست کند.</p>
     <div class="shot" data-full="shots/06-users.jpg"><img src="shots/06-users.jpg" alt="06 — Admin users" /></div>
-    <p class="next"><a href="#s-07">Next · 07 Activity →</a></p>
+    <p class="next"><a href="#s-07"><span class="lang-en">Next · 07 Activity →</span><span class="lang-fa">بعدی · ۰۷ فعالیت ←</span></a></p>
   </div></section>
 
   <section class="mod" id="s-07"><div class="wrap">
-    <p class="step-kicker">07 / 17 · Ops · Admin report trail</p>
-    <h2>Activity log — who changed what</h2>
-    <p class="why">Audit trail of logins, imports, backups, and directory edits — part of the admin reporting surface for accountability.</p>
-    <p class="why fa">ردپای ورود، واردسازی، بکاپ و ویرایش دفترچه — بخشی از گزارش‌دهی ادمین برای پاسخ‌گویی.</p>
+    <p class="step-kicker lang-en">07 / 17 · Ops · Admin report trail</p>
+    <p class="step-kicker lang-fa">۰۷ / ۱۷ · عملیات · ردپای گزارش ادمین</p>
+    <h2 class="lang-en">Activity log — who changed what</h2>
+    <h2 class="lang-fa">لاگ فعالیت — چه کسی چه تغییری داد</h2>
+    
+    <p class="why lang-en">Audit trail of logins, imports, backups, and directory edits — part of the admin reporting surface for accountability.</p>
+    <p class="why lang-fa">ردپای ورود، واردسازی، بکاپ و ویرایش دفترچه — بخشی از گزارش‌دهی ادمین برای پاسخ‌گویی.</p>
     <div class="shot" data-full="shots/07-activity.jpg"><img src="shots/07-activity.jpg" alt="07 — Activity" /></div>
-    <p class="next"><a href="#s-08">Next · 08 Monitoring →</a></p>
+    <p class="next"><a href="#s-08"><span class="lang-en">Next · 08 Monitoring →</span><span class="lang-fa">بعدی · ۰۸ مانیتورینگ ←</span></a></p>
   </div></section>
 
   <section class="mod" id="s-08"><div class="wrap">
-    <p class="step-kicker">08 / 17 · Ops · Key capability</p>
-    <h2>Admin reports — usage analytics &amp; monitoring</h2>
-    <div class="pillrow">
-      <span class="pill">Page views</span>
-      <span class="pill">Search heat</span>
-      <span class="pill">Device / browser mix</span>
-      <span class="pill">Hourly patterns</span>
-    </div>
-    <p class="why">Operators see how the phonebook is used: page views, hot searches, device and browser mix, and hourly patterns — admin reports for IT and holding leadership, not just a static contact list.</p>
-    <p class="why fa">اپراتورها می‌بینند دفترچه چطور استفاده می‌شود: بازدید صفحات، جستجوهای پرتکرار، ترکیب دستگاه/مرورگر و الگوی ساعتی — <strong>گزارش ادمین</strong> برای IT و مدیریت هلدینگ، نه فقط لیست تماس.</p>
+    <p class="step-kicker lang-en">08 / 17 · Ops · Key capability</p>
+    <p class="step-kicker lang-fa">۰۸ / ۱۷ · عملیات · قابلیت کلیدی</p>
+    <h2 class="lang-en">Admin reports — usage analytics &amp; monitoring</h2>
+    <h2 class="lang-fa">گزارش ادمین — آنالیتیکس مصرف و مانیتورینگ</h2>
+    <div class="pillrow"><span class="pill lang-en">Page views</span><span class="pill lang-fa">بازدید صفحات</span><span class="pill lang-en">Search heat</span><span class="pill lang-fa">جستجوی پرتکرار</span><span class="pill lang-en">Device / browser mix</span><span class="pill lang-fa">ترکیب دستگاه/مرورگر</span><span class="pill lang-en">Hourly patterns</span><span class="pill lang-fa">الگوی ساعتی</span></div>
+    <p class="why lang-en">Operators see how the phonebook is used: page views, hot searches, device and browser mix, and hourly patterns — admin reports for IT and holding leadership, not just a static contact list.</p>
+    <p class="why lang-fa">اپراتورها می‌بینند دفترچه چطور استفاده می‌شود: بازدید صفحات، جستجوهای پرتکرار، ترکیب دستگاه/مرورگر و الگوی ساعتی — <strong>گزارش ادمین</strong> برای IT و مدیریت هلدینگ، نه فقط لیست تماس.</p>
     <div class="shot" data-full="shots/08-analytics.jpg"><img src="shots/08-analytics.jpg" alt="08 — Admin reports / monitoring" /></div>
-    <p class="next"><a href="#s-09">Next · 09 Announcements →</a></p>
+    <p class="next"><a href="#s-09"><span class="lang-en">Next · 09 Announcements →</span><span class="lang-fa">بعدی · ۰۹ اطلاعیه ←</span></a></p>
   </div></section>
 
   <section class="mod" id="s-09"><div class="wrap">
-    <p class="step-kicker">09 / 17 · Ops · Key capability</p>
-    <h2>Org announcements — message the whole holding</h2>
-    <div class="pillrow">
-      <span class="pill">Time-bounded notices</span>
-      <span class="pill">Visible on staff directory</span>
-      <span class="pill">Holding-wide reach</span>
-    </div>
-    <p class="why">Publish time-bounded organizational announcements that surface in the staff directory experience — so the phonebook doubles as an internal notice board for the holding.</p>
-    <p class="why fa">انتشار <strong>اطلاعیه سازمانی</strong> زمان‌دار که در تجربهٔ کاربری دفترچه دیده می‌شود — دفترچه تلفن هم‌زمان تابلوی اعلامیه‌های هلدینگ است.</p>
-    <div class="shot" data-full="shots/09-announcements.jpg"><img src="shots/09-announcements.jpg" alt="09 — Organizational announcements" /></div>
-    <p class="next"><a href="#s-10">Next · 10 Excel import →</a></p>
+    <p class="step-kicker lang-en">09 / 17 · Ops · Key capability</p>
+    <p class="step-kicker lang-fa">۰۹ / ۱۷ · عملیات · قابلیت کلیدی</p>
+    <h2 class="lang-en">Org announcements — message the holding</h2>
+    <h2 class="lang-fa">اطلاعیه سازمانی — پیام به هلدینگ</h2>
+    <div class="pillrow"><span class="pill lang-en">Time-bounded notices</span><span class="pill lang-fa">اطلاعیه زمان‌دار</span><span class="pill lang-en">Visible on staff directory</span><span class="pill lang-fa">قابل‌نمایش در دفترچه کاربری</span><span class="pill lang-en">Holding-wide reach</span><span class="pill lang-fa">پوشش هلدینگ</span></div>
+    <p class="why lang-en">Publish time-bounded organizational announcements that surface in the staff directory experience — so the phonebook also works as an internal notice board.</p>
+    <p class="why lang-fa">انتشار <strong>اطلاعیه سازمانی</strong> زمان‌دار که در تجربهٔ کاربری دفترچه دیده می‌شود — دفترچه تلفن هم‌زمان تابلوی اعلامیه‌های داخلی است.</p>
+    <div class="shot" data-full="shots/09-announcements.jpg"><img src="shots/09-announcements.jpg" alt="09 — Organizational announcements (admin)" /></div>
+    <div class="callout lang-en"><b>Staff view:</b> Active notices surface as a banner on the staff directory. See <a href="#s-18">frame 18</a> (demo banner injected in-browser for capture only — scrubbed, no server write). Frame 09 is the admin composer; not a separate product.</div><div class="callout lang-fa"><b>نمای کاربری:</b> اطلاعیه‌های فعال به‌صورت بنر روی دفترچه دیده می‌شوند. ببینید <a href="#s-18">فریم ۱۸</a> (بنر دمو فقط در DOM برای اسکرین تزریق و پاک شد — بدون نوشتن سرور). فریم ۰۹ ترکیب‌کنندهٔ ادمین است؛ محصول جدا نیست.</div>
+    <p class="next"><a href="#s-10"><span class="lang-en">Next · 10 Excel import →</span><span class="lang-fa">بعدی · ۱۰ ورود اکسل ←</span></a></p>
   </div></section>
 
   <section class="mod" id="s-10"><div class="wrap">
-    <p class="step-kicker">10 / 17 · Data</p>
-    <h2>Excel import — bulk people load</h2>
-    <p class="why">Template download, preview, skip-duplicates or update-by-email, transactional rollback on structural errors.</p>
-    <p class="why fa">دانلود قالب، پیش‌نمایش، نادیده گرفتن تکراری یا بروزرسانی با ایمیل، و Rollback در خطای ساختاری.</p>
+    <p class="step-kicker lang-en">10 / 17 · Data</p>
+    <p class="step-kicker lang-fa">۱۰ / ۱۷ · داده</p>
+    <h2 class="lang-en">Excel import — bulk people load</h2>
+    <h2 class="lang-fa">ورود اکسل — بارگذاری گروهی افراد</h2>
+    
+    <p class="why lang-en">Template download, preview, skip-duplicates or update-by-email, transactional rollback on structural errors.</p>
+    <p class="why lang-fa">دانلود قالب، پیش‌نمایش، نادیده گرفتن تکراری یا بروزرسانی با ایمیل، و Rollback در خطای ساختاری.</p>
     <div class="shot" data-full="shots/10-import.jpg"><img src="shots/10-import.jpg" alt="10 — Excel import" /></div>
-    <p class="next"><a href="#s-11">Next · 11 Backup →</a></p>
+    <p class="next"><a href="#s-11"><span class="lang-en">Next · 11 Backup export →</span><span class="lang-fa">بعدی · ۱۱ خروجی بکاپ ←</span></a></p>
   </div></section>
 
   <section class="mod" id="s-11"><div class="wrap">
-    <p class="step-kicker">11 / 17 · Data</p>
-    <h2>Backup &amp; Restore — export and gated recovery</h2>
-    <p class="why">One admin page for disaster recovery: JSON export of companies, employees, announcements, and admin metadata — plus Super Admin–only restore with confirmation phrase and optional wipe-before-load.</p>
-    <p class="why fa">یک صفحه برای بازیابی: خروجی JSON شرکت‌ها، کارمندان، اطلاعیه‌ها و متادیتای ادمین؛ و بازیابی فقط سوپرادمین با عبارت تأیید و امکان پاک‌سازی قبل از بارگذاری.</p>
-    <div class="shot" data-full="shots/11-backup.jpg"><img src="shots/11-backup.jpg" alt="11 — Backup &amp; Restore" /></div>
-    <p class="next"><a href="#s-12">Next · 12 same combined page →</a></p>
+    <p class="step-kicker lang-en">11 / 17 · Data · Export focus</p>
+    <p class="step-kicker lang-fa">۱۱ / ۱۷ · داده · تمرکز خروجی</p>
+    <h2 class="lang-en">Backup &amp; Restore — JSON export</h2>
+    <h2 class="lang-fa">بکاپ و بازیابی — خروجی JSON</h2>
+    <div class="pillrow"><span class="pill lang-en">JSON export</span><span class="pill lang-fa">خروجی JSON</span><span class="pill lang-en">Companies · people · announcements</span><span class="pill lang-fa">شرکت · افراد · اطلاعیه</span></div>
+    <p class="why lang-en">Same combined admin page (menu: Backup &amp; Restore). This frame highlights the <strong>export</strong> side: download a JSON snapshot of companies, employees, announcements, and admin metadata for disaster recovery.</p>
+    <p class="why lang-fa">همان صفحهٔ ترکیبی ادمین (منو: بکاپ و بازیابی). این فریم روی بخش <strong>خروجی</strong> تمرکز دارد: دانلود اسنپ‌شات JSON از شرکت‌ها، کارمندان، اطلاعیه‌ها و متادیتای ادمین برای بازیابی.</p>
+    <div class="shot" data-full="shots/11-backup.jpg"><img src="shots/11-backup.jpg" alt="11 — Backup & Restore · export focus" /></div>
+    <p class="note lang-en">Not a separate Backup-only product — export and restore share one admin surface.</p>
+    <p class="note lang-fa">محصول جداگانهٔ «فقط بکاپ» نیست — خروجی و بازیابی در یک سطح ادمین هستند.</p>
+    <p class="next"><a href="#s-12"><span class="lang-en">Next · 12 Restore focus →</span><span class="lang-fa">بعدی · ۱۲ تمرکز بازیابی ←</span></a></p>
   </div></section>
 
   <section class="mod" id="s-12"><div class="wrap">
-    <p class="step-kicker">12 / 17 · Data</p>
-    <h2>Backup &amp; Restore — same combined page</h2>
-    <p class="why">Not a separate Restore-only screen: backup export and gated restore live on one admin surface (menu: بکاپ و بازیابی). Frame 12 keeps tour numbering while showing the same combined page.</p>
-    <p class="why fa">صفحهٔ جداگانهٔ «فقط بازیابی» نیست؛ خروجی و بازیابی در یک سطح ادمین (منو: بکاپ و بازیابی) هستند. فریم ۱۲ همان صفحه برای پیوستگی تور است.</p>
-    <div class="shot" data-full="shots/12-restore.jpg"><img src="shots/12-restore.jpg" alt="12 — Backup &amp; Restore (combined)" /></div>
-    <p class="next"><a href="#s-13">Next · 13 Security →</a></p>
+    <p class="step-kicker lang-en">12 / 17 · Data · Restore focus</p>
+    <p class="step-kicker lang-fa">۱۲ / ۱۷ · داده · تمرکز بازیابی</p>
+    <h2 class="lang-en">Backup &amp; Restore — gated Super Admin restore</h2>
+    <h2 class="lang-fa">بکاپ و بازیابی — بازیابی محافظت‌شده سوپرادمین</h2>
+    <div class="pillrow"><span class="pill lang-en">Super Admin only</span><span class="pill lang-fa">فقط سوپرادمین</span><span class="pill lang-en">Confirmation phrase</span><span class="pill lang-fa">عبارت تأیید</span><span class="pill lang-en">Optional wipe-before-load</span><span class="pill lang-fa">پاک‌سازی اختیاری قبل از بارگذاری</span></div>
+    <p class="why lang-en">Same combined page as frame 11 — not a separate Restore product. This frame highlights the <strong>restore</strong> controls: Super Admin–only load with a confirmation phrase and optional wipe-before-load.</p>
+    <p class="why lang-fa">همان صفحهٔ ترکیبی فریم ۱۱ — محصول جداگانهٔ «فقط بازیابی» نیست. این فریم روی کنترل‌های <strong>بازیابی</strong> تمرکز دارد: بارگذاری فقط سوپرادمین با عبارت تأیید و امکان پاک‌سازی قبل از بارگذاری.</p>
+    <div class="shot" data-full="shots/12-restore.jpg"><img src="shots/12-restore.jpg" alt="12 — Backup & Restore · restore focus" /></div>
+    <p class="note lang-en">Tour keeps two frames for export vs restore emphasis on one admin page.</p>
+    <p class="note lang-fa">تور دو فریم نگه می‌دارد تا تأکید خروجی در برابر بازیابی روی یک صفحه مشخص باشد.</p>
+    <p class="next"><a href="#s-13"><span class="lang-en">Next · 13 Security →</span><span class="lang-fa">بعدی · ۱۳ امنیت ←</span></a></p>
   </div></section>
 
   <section class="mod" id="s-13"><div class="wrap">
-    <p class="step-kicker">13 / 17 · Security</p>
-    <h2>Security — Authenticator 2FA and recovery codes</h2>
-    <p class="why">Enable TOTP 2FA, show recovery codes, and let Super Admin reset another admin’s second factor.</p>
-    <p class="why fa">فعال‌سازی ۲FA مبتنی بر Authenticator، کد بازیابی، و ریست عامل دوم توسط سوپرادمین.</p>
+    <p class="step-kicker lang-en">13 / 17 · Security</p>
+    <p class="step-kicker lang-fa">۱۳ / ۱۷ · امنیت</p>
+    <h2 class="lang-en">Security — Authenticator 2FA and recovery codes</h2>
+    <h2 class="lang-fa">امنیت — ۲FA مبتنی بر Authenticator و کد بازیابی</h2>
+    
+    <p class="why lang-en">Enable TOTP 2FA, show recovery codes, and let Super Admin reset another admin’s second factor.</p>
+    <p class="why lang-fa">فعال‌سازی ۲FA مبتنی بر Authenticator، کد بازیابی، و ریست عامل دوم توسط سوپرادمین.</p>
     <div class="shot" data-full="shots/13-security.jpg"><img src="shots/13-security.jpg" alt="13 — Security" /></div>
-    <p class="next"><a href="#s-14">Next · 14 Visual settings →</a></p>
+    <p class="next"><a href="#s-14"><span class="lang-en">Next · 14 Visual settings →</span><span class="lang-fa">بعدی · ۱۴ تنظیمات بصری ←</span></a></p>
   </div></section>
 
   <section class="mod" id="s-14"><div class="wrap">
-    <p class="step-kicker">14 / 17 · Brand</p>
-    <h2>Visual settings — theme the public directory</h2>
-    <p class="why">Tune the staff-facing book: colors, effects, and presentation without redeploying code.</p>
-    <p class="why fa">تنظیم ظاهر دفترچهٔ کاربری: رنگ، جلوه و نمایش بدون دیپلوی مجدد.</p>
+    <p class="step-kicker lang-en">14 / 17 · Brand</p>
+    <p class="step-kicker lang-fa">۱۴ / ۱۷ · برند</p>
+    <h2 class="lang-en">Visual settings — theme the public directory</h2>
+    <h2 class="lang-fa">تنظیمات بصری — تم دفترچه عمومی</h2>
+    
+    <p class="why lang-en">Tune the staff-facing book: colors, effects, and presentation without redeploying code.</p>
+    <p class="why lang-fa">تنظیم ظاهر دفترچهٔ کاربری: رنگ، جلوه و نمایش بدون دیپلوی مجدد.</p>
     <div class="shot" data-full="shots/14-visual-settings.jpg"><img src="shots/14-visual-settings.jpg" alt="14 — Visual settings" /></div>
-    <p class="next"><a href="#s-15">Next · 15 Password →</a></p>
+    <p class="next"><a href="#s-15"><span class="lang-en">Next · 15 Password →</span><span class="lang-fa">بعدی · ۱۵ رمز ←</span></a></p>
   </div></section>
 
   <section class="mod" id="s-15"><div class="wrap">
-    <p class="step-kicker">15 / 17 · Security</p>
-    <h2>Change password — operator hygiene</h2>
-    <p class="why">Strong password policy for admin accounts (length, case, digit, symbol).</p>
-    <p class="why fa">سیاست رمز قوی برای حساب ادمین (طول، حروف، عدد، نماد).</p>
+    <p class="step-kicker lang-en">15 / 17 · Security</p>
+    <p class="step-kicker lang-fa">۱۵ / ۱۷ · امنیت</p>
+    <h2 class="lang-en">Change password — operator hygiene</h2>
+    <h2 class="lang-fa">تغییر رمز — بهداشت حساب اپراتور</h2>
+    
+    <p class="why lang-en">Strong password policy for admin accounts (length, case, digit, symbol).</p>
+    <p class="why lang-fa">سیاست رمز قوی برای حساب ادمین (طول، حروف، عدد، نماد).</p>
     <div class="shot" data-full="shots/15-change-password.jpg"><img src="shots/15-change-password.jpg" alt="15 — Change password" /></div>
-    <p class="next"><a href="#s-16">Next · 16 Edit + photo →</a></p>
+    <p class="next"><a href="#s-16"><span class="lang-en">Next · 16 Edit + photo →</span><span class="lang-fa">بعدی · ۱۶ ویرایش + عکس ←</span></a></p>
   </div></section>
 
   <section class="mod" id="s-16"><div class="wrap">
-    <p class="step-kicker">16 / 17 · Admin · Key capability</p>
-    <h2>Add personnel photos — edit user &amp; upload</h2>
-    <div class="pillrow">
-      <span class="pill">JPEG / PNG / WebP</span>
-      <span class="pill">Max 2 MB</span>
-      <span class="pill">Shows on staff directory</span>
-    </div>
-    <p class="why">From the people table, operators open <strong>Edit User</strong> to change bilingual names, company, gender, department, extension — and <strong>attach a profile photo</strong> (JPEG/PNG/WebP, max 2&nbsp;MB). When uploaded, that photo becomes the avatar on staff directory cards; otherwise a gendered demo avatar is shown.</p>
-    <p class="why fa">از جدول افراد، اپراتور «ویرایش کاربر» را باز می‌کند تا نام دوزبانه، شرکت، جنسیت، بخش، داخلی و <strong>عکس پروفایل</strong> را تنظیم کند. همان عکس روی کارت دفترچه دیده می‌شود تا همکاران افراد را بشناسند، نه فقط شماره داخلی.</p>
+    <p class="step-kicker lang-en">16 / 17 · Admin · Key capability</p>
+    <p class="step-kicker lang-fa">۱۶ / ۱۷ · ادمین · قابلیت کلیدی</p>
+    <h2 class="lang-en">Add personnel photos — edit user &amp; upload</h2>
+    <h2 class="lang-fa">افزودن عکس پرسنل — ویرایش کاربر و آپلود</h2>
+    <div class="pillrow"><span class="pill">JPEG / PNG / WebP</span><span class="pill lang-en">Max 2 MB</span><span class="pill lang-fa">حداکثر ۲ MB</span><span class="pill lang-en">Shows on staff directory</span><span class="pill lang-fa">نمایش روی دفترچه کاربری</span></div>
+    <p class="why lang-en">From the people table, operators open <strong>Edit User</strong> to change bilingual names, company, gender, department, extension — and <strong>attach a profile photo</strong> (JPEG/PNG/WebP, max 2&nbsp;MB). When uploaded, that photo becomes the avatar on staff directory cards; otherwise a gendered demo avatar is shown.</p>
+    <p class="why lang-fa">از جدول افراد، اپراتور «ویرایش کاربر» را باز می‌کند تا نام دوزبانه، شرکت، جنسیت، بخش، داخلی و <strong>عکس پروفایل</strong> (JPEG/PNG/WebP، حداکثر ۲&nbsp;MB) را تنظیم کند. همان عکس روی کارت دفترچه دیده می‌شود؛ در غیر این صورت آواتار دموی خانم/آقا.</p>
     <div class="shot" data-full="shots/16-employee-edit.jpg"><img src="shots/16-employee-edit.jpg" alt="16 — Edit employee with photo upload" /></div>
-    <p class="next"><a href="#s-17">Next · 17 Photo crop →</a></p>
+    <p class="next"><a href="#s-17"><span class="lang-en">Next · 17 Photo crop →</span><span class="lang-fa">بعدی · ۱۷ برش عکس ←</span></a></p>
   </div></section>
 
   <section class="mod" id="s-17"><div class="wrap">
-    <p class="step-kicker">17 / 17 · Admin · Key capability</p>
-    <h2>Photo crop — drag, zoom, card preview</h2>
-    <div class="pillrow">
-      <span class="pill">Drag to frame</span>
-      <span class="pill">Zoom wheel / slider</span>
-      <span class="pill">Circular card preview</span>
-      <span class="pill">Server WebP</span>
-    </div>
-    <p class="why">Before upload, a crop modal lets you drag to frame, zoom with the wheel or slider, and preview the circular card crop. Saved image is compressed to WebP on the server — so adding personnel photos is a guided, in-product flow.</p>
-    <p class="why fa">قبل از آپلود، مودال برش امکان جابه‌جایی، زوم با اسکرول/اسلایدر و پیش‌نمایش دایره‌ای کارت را می‌دهد؛ تصویر روی سرور به WebP فشرده می‌شود — اضافه کردن عکس پرسنل یک جریان کامل داخل محصول است.</p>
+    <p class="step-kicker lang-en">17 / 17 · Admin · Key capability</p>
+    <p class="step-kicker lang-fa">۱۷ / ۱۷ · ادمین · قابلیت کلیدی</p>
+    <h2 class="lang-en">Photo crop — drag, zoom, card preview</h2>
+    <h2 class="lang-fa">برش عکس — جابه‌جایی، زوم، پیش‌نمایش کارت</h2>
+    <div class="pillrow"><span class="pill lang-en">Drag to frame</span><span class="pill lang-fa">جابه‌جایی کادر</span><span class="pill lang-en">Zoom wheel / slider</span><span class="pill lang-fa">زوم اسکرول/اسلایدر</span><span class="pill lang-en">Circular card preview</span><span class="pill lang-fa">پیش‌نمایش دایره‌ای</span><span class="pill lang-en">Server WebP · max 2 MB upload</span><span class="pill lang-fa">WebP سرور · آپلود حداکثر ۲ MB</span></div>
+    <p class="why lang-en">Before upload, a crop modal lets you drag to frame, zoom with the wheel or slider, and preview the circular card crop. Saved image is compressed to WebP on the server — a guided in-product flow for personnel photos (upload limit remains 2&nbsp;MB).</p>
+    <p class="why lang-fa">قبل از آپلود، مودال برش امکان جابه‌جایی، زوم با اسکرول/اسلایدر و پیش‌نمایش دایره‌ای کارت را می‌دهد؛ تصویر روی سرور به WebP فشرده می‌شود — جریان راهنما داخل محصول برای عکس پرسنل (سقف آپلود همچنان ۲&nbsp;MB).</p>
     <div class="shot" data-full="shots/17-photo-crop.jpg"><img src="shots/17-photo-crop.jpg" alt="17 — Profile photo crop" /></div>
   </div></section>
 
-  <section class="mod" id="stack"><div class="wrap">
-    <h2>Capability map / نقشهٔ قابلیت</h2>
-    <p class="why" style="margin-bottom:18px">What visitors should take away: the directory is not only extensions — it carries photos, mobile/email, org announcements, and admin reporting, plus full governance.</p>
-    <div class="cards six">
-      <div class="card key"><h3>📷 Personnel photos</h3><p>Upload + crop from Edit User; avatars on staff cards. <a href="#s-16">See 16–17 →</a></p></div>
-      <div class="card key"><h3>📱 Mobile &amp; email</h3><p>Contact actions on directory cards when visibility allows. <a href="#s-01">See 01 →</a></p></div>
-      <div class="card key"><h3>📢 Org announcements</h3><p>Time-bounded holding notices in the staff experience. <a href="#s-09">See 09 →</a></p></div>
-      <div class="card key"><h3>📊 Admin reports</h3><p>Usage monitoring, search heat, activity audit, dashboard KPIs. <a href="#s-08">See 07–08 →</a></p></div>
-      <div class="card"><h3>Governance</h3><p>Companies, employees, admins, Excel import, duplicate merge, backup/restore, visual theme.</p></div>
-      <div class="card"><h3>Security</h3><p>2FA + recovery codes, password policy, Super Admin gates, separate admin login.</p></div>
+
+  <section class="mod" id="s-18"><div class="wrap">
+    <p class="step-kicker lang-en">18 / 18 · Staff · Announcement surface</p>
+    <p class="step-kicker lang-fa">۱۸ / ۱۸ · کاربری · سطح نمایش اطلاعیه</p>
+    <h2 class="lang-en">Staff directory — announcement banner (demo inject)</h2>
+    <h2 class="lang-fa">دفترچه کاربری — بنر اطلاعیه (تزریق دمو)</h2>
+    <div class="pillrow">
+      <span class="pill lang-en">Same staff directory as 01</span><span class="pill lang-fa">همان دفترچه کاربری فریم ۰۱</span>
+      <span class="pill lang-en">Obvious DEMO copy</span><span class="pill lang-fa">متن واضح DEMO</span>
+      <span class="pill lang-en">No server write</span><span class="pill lang-fa">بدون نوشتن سرور</span>
     </div>
+    <p class="why lang-en">How staff see holding notices: a banner on the directory. This frame used a <strong>temporary DOM inject</strong> with obviously fictional DEMO text for capture, then scrubbed — the phonebook server was not modified. Complements admin composer on frame 09.</p>
+    <p class="why lang-fa">نحوهٔ دیدن اطلاعیه توسط همکاران: بنر روی دفترچه. این فریم با <strong>تزریق موقت DOM</strong> و متن واضح DEMO برای اسکرین گرفته و سپس پاک شد — سرور دفترچه تغییر نکرد. مکمل ترکیب‌کنندهٔ ادمین در فریم ۰۹.</p>
+    <div class="shot" data-full="shots/09b-staff-announcement.jpg"><img src="shots/09b-staff-announcement.jpg" alt="18 — Staff directory with DEMO announcement banner (DOM inject)" /></div>
+    <p class="note lang-en">Demo/fictional banner only. Injected for catalog capture; removed after screenshot.</p>
+    <p class="note lang-fa">فقط بنر دمو/خیالی. برای اسکرین کاتالوگ تزریق و بعد از عکس حذف شد.</p>
+    <p class="next"><a href="#s-09"><span class="lang-en">Related · 09 Admin announcements →</span><span class="lang-fa">مرتبط · ۰۹ اطلاعیه ادمین ←</span></a> · <a href="#s-01"><span class="lang-en">Related · 01 Directory →</span><span class="lang-fa">مرتبط · ۰۱ دفترچه ←</span></a></p>
   </div></section>
 
-  <section class="mod" id="fa"><div class="wrap fa-block">
-    <h2>دفترچه تلفن سازمانی — تور ۱۷ صفحه‌ای</h2>
-    <p class="why">بیننده باید در نگاه اول بفهمد: می‌توان <strong>عکس پروفایل</strong> آپلود کرد (در غیر این صورت آواتار دمو)، با کنترل نمایش <strong>موبایل و ایمیل</strong> دید، <strong>اطلاعیه سازمانی</strong> منتشر کرد، و <strong>گزارش ادمین</strong> (مانیتورینگ و لاگ) گرفت — به‌همراه شرکت‌ها، اکسل، بکاپ، تم و ۲FA.</p>
-    <p class="why">ترتیب تور: دفترچه کاربری → ورود ادمین → داشبورد → شرکت‌ها → کارمندان → ادمین‌ها → فعالیت → مانیتورینگ → اطلاعیه → اکسل → بکاپ و بازیابی → امنیت → تم بصری → تغییر رمز → ویرایش و آپلود عکس → برش/زوم عکس.</p>
-    <p class="note fa">اسکرین‌ها از UI واقعی‌اند؛ نام‌ها و مشخصات حساس در مرورگر با دادهٔ دمو عوض شده‌اند (بدون بلور).</p>
+  <section class="mod" id="stack"><div class="wrap">
+    <h2 class="lang-en">Capability map</h2>
+    <h2 class="lang-fa">نقشهٔ قابلیت</h2>
+    <p class="why lang-en" style="margin-bottom:18px">What visitors should take away: the directory is not only extensions — it carries photos, mobile/email, org announcements, and admin reporting, plus full governance.</p>
+    <p class="why lang-fa" style="margin-bottom:18px">خلاصه برای بازدیدکننده: دفترچه فقط داخلی نیست — عکس، موبایل/ایمیل، اطلاعیه سازمانی و گزارش ادمین دارد، به‌همراه حاکمیت کامل.</p>
+    <div class="cards">
+      <div class="card key">
+        <h3 class="lang-en">📷 Personnel photos</h3><h3 class="lang-fa">📷 عکس پرسنل</h3>
+        <p class="lang-en">Upload + crop from Edit User (max 2&nbsp;MB); avatars on staff cards. <a href="#s-16">See 16–17 →</a></p>
+        <p class="lang-fa">آپلود و برش از ویرایش کاربر (حداکثر ۲&nbsp;MB)؛ آواتار روی کارت. <a href="#s-16">ببینید ۱۶–۱۷ ←</a></p>
+      </div>
+      <div class="card key">
+        <h3 class="lang-en">📱 Mobile &amp; email</h3><h3 class="lang-fa">📱 موبایل و ایمیل</h3>
+        <p class="lang-en">Contact actions on directory cards when visibility allows. <a href="#s-01">See 01 →</a></p>
+        <p class="lang-fa">اکشن تماس روی کارت دفترچه با کنترل نمایش. <a href="#s-01">ببینید ۰۱ ←</a></p>
+      </div>
+      <div class="card key">
+        <h3 class="lang-en">📢 Org announcements</h3><h3 class="lang-fa">📢 اطلاعیه سازمانی</h3>
+        <p class="lang-en">Time-bounded holding notices in the staff experience. <a href="#s-09">See 09 →</a></p>
+        <p class="lang-fa">اطلاعیه زمان‌دار هلدینگ در تجربهٔ کاربری. <a href="#s-09">ببینید ۰۹ ←</a></p>
+      </div>
+      <div class="card key">
+        <h3 class="lang-en">📊 Admin reports</h3><h3 class="lang-fa">📊 گزارش ادمین</h3>
+        <p class="lang-en">Usage monitoring, search heat, activity audit, dashboard KPIs. <a href="#s-08">See 07–08 →</a></p>
+        <p class="lang-fa">مانیتورینگ مصرف، جستجوی پرتکرار، لاگ فعالیت، KPI داشبورد. <a href="#s-08">ببینید ۰۷–۰۸ ←</a></p>
+      </div>
+      <div class="card">
+        <h3 class="lang-en">Governance</h3><h3 class="lang-fa">حاکمیت</h3>
+        <p class="lang-en">Companies, employees, admins, Excel import, duplicate merge, backup/restore, visual theme.</p>
+        <p class="lang-fa">شرکت‌ها، کارمندان، ادمین‌ها، ورود اکسل، ادغام تکراری، بکاپ/بازیابی، تم بصری.</p>
+      </div>
+      <div class="card">
+        <h3 class="lang-en">Security</h3><h3 class="lang-fa">امنیت</h3>
+        <p class="lang-en">2FA + recovery codes, password policy, Super Admin gates, separate admin login.</p>
+        <p class="lang-fa">۲FA و کد بازیابی، سیاست رمز، دروازه سوپرادمین، ورود جدا ادمین.</p>
+      </div>
+    </div>
   </div></section>
 
   <footer>
     <div class="wrap">
-      Screens captured from a live Enterprise Directory deployment; PII replaced with demo data in-browser (sharp frames, no blur).
-      Implementation stays private. Pattern shared with
-      <a href="https://ramincsy.github.io/atlas-showcase/">Atlas</a>,
-      <a href="https://ramincsy.github.io/aftabpulse-showcase/">AftabPulse</a>,
-      <a href="https://ramincsy.github.io/taradod-nexus-showcase/">Taradod Nexus</a>.<br />
-      © ramioo · <a href="https://www.ramioo.com">ramioo.com</a>
-      · <a href="https://github.com/ramincsy/enterprise-directory-showcase">GitHub</a>
-      · <a href="https://ramincsy.github.io/enterprise-directory-showcase/">Live Pages</a>
-      <p style="margin:12px 0 0">Click a frame to zoom · ← → follows tour order · Esc to close.</p>
+      <span class="lang-en">
+        Screens captured from a live Enterprise Directory deployment; PII replaced with demo data in-browser (sharp frames, no blur).
+        Implementation stays private. Pattern shared with
+        <a href="https://ramincsy.github.io/atlas-showcase/">Atlas</a>,
+        <a href="https://ramincsy.github.io/aftabpulse-showcase/">AftabPulse</a>,
+        <a href="https://ramincsy.github.io/taradod-nexus-showcase/">Taradod Nexus</a>.<br />
+        © ramioo · <a href="https://www.ramioo.com">ramioo.com</a>
+        · <a href="https://github.com/ramincsy/enterprise-directory-showcase">GitHub</a>
+        · <a href="https://ramincsy.github.io/enterprise-directory-showcase/">Live Pages</a>
+        <p style="margin:12px 0 0">Click a frame to zoom · ← → follows tour order · Esc to close. Language: EN | فارسی (remembered).</p>
+      </span>
+      <span class="lang-fa">
+        اسکرین‌ها از استقرار زندهٔ دفترچه سازمانی؛ PII در مرورگر با دادهٔ دمو عوض شده (فریم واضح، بدون بلور).
+        پیاده‌سازی خصوصی می‌ماند. الگوی مشترک با
+        <a href="https://ramincsy.github.io/atlas-showcase/">Atlas</a>،
+        <a href="https://ramincsy.github.io/aftabpulse-showcase/">AftabPulse</a> و
+        <a href="https://ramincsy.github.io/taradod-nexus-showcase/">Taradod Nexus</a>.<br />
+        © ramioo · <a href="https://www.ramioo.com">ramioo.com</a>
+        · <a href="https://github.com/ramincsy/enterprise-directory-showcase">GitHub</a>
+        · <a href="https://ramincsy.github.io/enterprise-directory-showcase/">Pages زنده</a>
+        <p style="margin:12px 0 0">کلیک برای بزرگ‌نمایی · ← → ترتیب تور · Esc بستن. زبان: EN | فارسی (ذخیره می‌شود).</p>
+      </span>
     </div>
   </footer>
 
@@ -467,32 +589,70 @@
   </div>
 
   <script>
+    const LANG_KEY = "ed-showcase-lang";
     const shots = [
-      { n:"01", src:"shots/01-directory.jpg", tag:"STAFF · KEY", title:"Directory · photos + mobile/email", desc:"Avatars, email & mobile on cards", key:true },
-      { n:"02", src:"shots/02-admin-login.jpg", tag:"ACCESS", title:"Admin login", desc:"Operator entry" },
-      { n:"03", src:"shots/03-dashboard.jpg", tag:"ADMIN", title:"Dashboard", desc:"KPIs and quick actions" },
-      { n:"04", src:"shots/04-companies.jpg", tag:"ADMIN", title:"Companies", desc:"Prefixes and bilingual names" },
-      { n:"05", src:"shots/05-employees.jpg", tag:"ADMIN", title:"Employees", desc:"Table, hide, dedupe → photo" },
-      { n:"06", src:"shots/06-users.jpg", tag:"ADMIN", title:"Admin accounts", desc:"Super Admin controls" },
-      { n:"07", src:"shots/07-activity.jpg", tag:"OPS", title:"Activity log", desc:"Admin audit trail" },
-      { n:"08", src:"shots/08-analytics.jpg", tag:"OPS · KEY", title:"Admin reports", desc:"Usage analytics & monitoring", key:true },
-      { n:"09", src:"shots/09-announcements.jpg", tag:"OPS · KEY", title:"Org announcements", desc:"Holding-wide notices", key:true },
-      { n:"10", src:"shots/10-import.jpg", tag:"DATA", title:"Excel import", desc:"Bulk load + preview" },
-      { n:"11", src:"shots/11-backup.jpg", tag:"DATA", title:"Backup & Restore", desc:"JSON export + gated restore" },
-      { n:"12", src:"shots/12-restore.jpg", tag:"DATA", title:"Backup & Restore", desc:"Same combined admin page" },
-      { n:"13", src:"shots/13-security.jpg", tag:"SEC", title:"Security / 2FA", desc:"Authenticator + codes" },
-      { n:"14", src:"shots/14-visual-settings.jpg", tag:"BRAND", title:"Visual settings", desc:"Theme the public book" },
-      { n:"15", src:"shots/15-change-password.jpg", tag:"SEC", title:"Change password", desc:"Operator hygiene" },
-      { n:"16", src:"shots/16-employee-edit.jpg", tag:"ADMIN · KEY", title:"Add personnel photo", desc:"Upload from Edit User", key:true },
-      { n:"17", src:"shots/17-photo-crop.jpg", tag:"ADMIN · KEY", title:"Photo crop", desc:"Drag, zoom, preview", key:true }
+      { n:"01", src:"shots/01-directory.jpg", tag:{en:"STAFF · KEY",fa:"کاربری · کلیدی"}, title:{en:"Directory · photos + mobile/email",fa:"دفترچه · عکس + موبایل/ایمیل"}, desc:{en:"Avatars, email & mobile on cards",fa:"آواتار، ایمیل و موبایل روی کارت"}, key:true },
+      { n:"02", src:"shots/02-admin-login.jpg", tag:{en:"ACCESS",fa:"دسترسی"}, title:{en:"Admin login",fa:"ورود ادمین"}, desc:{en:"Operator entry",fa:"ورود اپراتور"} },
+      { n:"03", src:"shots/03-dashboard.jpg", tag:{en:"ADMIN",fa:"ادمین"}, title:{en:"Dashboard",fa:"داشبورد"}, desc:{en:"KPIs and quick actions",fa:"شاخص و میانبر"} },
+      { n:"04", src:"shots/04-companies.jpg", tag:{en:"ADMIN",fa:"ادمین"}, title:{en:"Companies",fa:"شرکت‌ها"}, desc:{en:"Prefixes and bilingual names",fa:"پیش‌شماره و نام دوزبانه"} },
+      { n:"05", src:"shots/05-employees.jpg", tag:{en:"ADMIN",fa:"ادمین"}, title:{en:"Employees",fa:"کارمندان"}, desc:{en:"Table, hide, dedupe → photo",fa:"جدول، مخفی، تکراری → عکس"} },
+      { n:"06", src:"shots/06-users.jpg", tag:{en:"ADMIN",fa:"ادمین"}, title:{en:"Admin accounts",fa:"حساب ادمین"}, desc:{en:"Super Admin controls",fa:"کنترل سوپرادمین"} },
+      { n:"07", src:"shots/07-activity.jpg", tag:{en:"OPS",fa:"عملیات"}, title:{en:"Activity log",fa:"لاگ فعالیت"}, desc:{en:"Admin audit trail",fa:"ردپای ادمین"} },
+      { n:"08", src:"shots/08-analytics.jpg", tag:{en:"OPS · KEY",fa:"عملیات · کلیدی"}, title:{en:"Admin reports",fa:"گزارش ادمین"}, desc:{en:"Usage analytics & monitoring",fa:"آنالیتیکس و مانیتورینگ"}, key:true },
+      { n:"09", src:"shots/09-announcements.jpg", tag:{en:"OPS · KEY",fa:"عملیات · کلیدی"}, title:{en:"Org announcements",fa:"اطلاعیه سازمانی"}, desc:{en:"Admin composer · staff banner on 01",fa:"ترکیب ادمین · بنر کاربری در ۰۱"}, key:true },
+      { n:"10", src:"shots/10-import.jpg", tag:{en:"DATA",fa:"داده"}, title:{en:"Excel import",fa:"ورود اکسل"}, desc:{en:"Bulk load + preview",fa:"بارگذاری گروهی + پیش‌نمایش"} },
+      { n:"11", src:"shots/11-backup.jpg", tag:{en:"DATA",fa:"داده"}, title:{en:"Backup · export",fa:"بکاپ · خروجی"}, desc:{en:"JSON export on combined page",fa:"خروجی JSON روی صفحه ترکیبی"} },
+      { n:"12", src:"shots/12-restore.jpg", tag:{en:"DATA",fa:"داده"}, title:{en:"Restore · gated",fa:"بازیابی · محافظت‌شده"}, desc:{en:"Super Admin restore on same page",fa:"بازیابی سوپرادمین روی همان صفحه"} },
+      { n:"13", src:"shots/13-security.jpg", tag:{en:"SEC",fa:"امنیت"}, title:{en:"Security / 2FA",fa:"امنیت / ۲FA"}, desc:{en:"Authenticator + codes",fa:"Authenticator و کدها"} },
+      { n:"14", src:"shots/14-visual-settings.jpg", tag:{en:"BRAND",fa:"برند"}, title:{en:"Visual settings",fa:"تنظیمات بصری"}, desc:{en:"Theme the public book",fa:"تم دفترچه عمومی"} },
+      { n:"15", src:"shots/15-change-password.jpg", tag:{en:"SEC",fa:"امنیت"}, title:{en:"Change password",fa:"تغییر رمز"}, desc:{en:"Operator hygiene",fa:"بهداشت حساب اپراتور"} },
+      { n:"16", src:"shots/16-employee-edit.jpg", tag:{en:"ADMIN · KEY",fa:"ادمین · کلیدی"}, title:{en:"Add personnel photo",fa:"افزودن عکس پرسنل"}, desc:{en:"Upload from Edit User · max 2 MB",fa:"آپلود از ویرایش · حداکثر ۲ MB"}, key:true },
+      { n:"17", src:"shots/17-photo-crop.jpg", tag:{en:"ADMIN · KEY",fa:"ادمین · کلیدی"}, title:{en:"Photo crop",fa:"برش عکس"}, desc:{en:"Drag, zoom, preview · max 2 MB",fa:"جابه‌جایی، زوم، پیش‌نمایش · حداکثر ۲ MB"}, key:true },
+      { n:"18", src:"shots/09b-staff-announcement.jpg", tag:{en:"STAFF · KEY",fa:"کاربری · کلیدی"}, title:{en:"Staff announce banner",fa:"بنر اطلاعیه کاربری"}, desc:{en:"DEMO DOM inject · no server write",fa:"تزریق DEMO در DOM · بدون نوشتن سرور"}, key:true }
     ];
-    const grid = document.getElementById("grid");
-    grid.innerHTML = shots.map((s) => `
-      <a class="tile${s.key ? " key" : ""}" href="#s-${s.n}" data-full="${s.src}">
-        <span class="num">${s.n}</span>
-        <img src="${s.src}" alt="${s.n} — ${s.title}" />
-        <div class="meta"><div class="tag">${s.tag}</div><h3>${s.n} · ${s.title}</h3><p>${s.desc}</p></div>
-      </a>`).join("");
+
+    function currentLang() {
+      return document.documentElement.getAttribute("lang") === "en" ? "en" : "fa";
+    }
+
+    function renderGrid() {
+      const lang = currentLang();
+      const grid = document.getElementById("grid");
+      grid.innerHTML = shots.map((s) => `
+        <a class="tile${s.key ? " key" : ""}" href="#s-${s.n}" data-full="${s.src}">
+          <span class="num">${s.n}</span>
+          <img src="${s.src}" alt="${s.n} — ${s.title[lang]}" />
+          <div class="meta"><div class="tag">${s.tag[lang]}</div><h3>${s.n} · ${s.title[lang]}</h3><p>${s.desc[lang]}</p></div>
+        </a>`).join("");
+    }
+
+    function setLang(lang) {
+      const L = lang === "en" ? "en" : "fa";
+      document.documentElement.setAttribute("lang", L);
+      document.documentElement.setAttribute("dir", L === "fa" ? "rtl" : "ltr");
+      document.getElementById("btn-en").setAttribute("aria-pressed", L === "en" ? "true" : "false");
+      document.getElementById("btn-fa").setAttribute("aria-pressed", L === "fa" ? "true" : "false");
+      try { localStorage.setItem(LANG_KEY, L); } catch (_) {}
+      renderGrid();
+      if (document.getElementById("lightbox").classList.contains("open")) {
+        const s = shots[idx];
+        document.getElementById("lbtitle").textContent = s.title[L];
+      }
+    }
+
+    (function initLang() {
+      let lang = "fa";
+      try {
+        const saved = localStorage.getItem(LANG_KEY);
+        if (saved === "en" || saved === "fa") lang = saved;
+      } catch (_) {}
+      setLang(lang);
+    })();
+
+    document.querySelectorAll("[data-set-lang]").forEach((btn) => {
+      btn.addEventListener("click", () => setLang(btn.getAttribute("data-set-lang")));
+    });
+
     const lb = document.getElementById("lightbox");
     const lbImg = lb.querySelector("img");
     const lbStep = document.getElementById("lbstep");
@@ -501,8 +661,9 @@
     function show(i) {
       idx = (i + shots.length) % shots.length;
       const s = shots[idx];
-      lbImg.src = s.src; lbImg.alt = s.title;
-      lbStep.textContent = s.n + " / 17"; lbTitle.textContent = s.title; lb.scrollTop = 0;
+      const lang = currentLang();
+      lbImg.src = s.src; lbImg.alt = s.title[lang];
+      lbStep.textContent = s.n + " / 18"; lbTitle.textContent = s.title[lang]; lb.scrollTop = 0;
     }
     function openLb(src) { show(Math.max(0, shots.findIndex((s) => s.src === src))); lb.classList.add("open"); }
     function closeLb() { lb.classList.remove("open"); lbImg.src = ""; }
@@ -514,8 +675,8 @@
     document.addEventListener("keydown", (e) => {
       if (!lb.classList.contains("open")) return;
       if (e.key === "Escape") closeLb();
-      if (e.key === "ArrowRight") show(idx + 1);
-      if (e.key === "ArrowLeft") show(idx - 1);
+      if (e.key === "ArrowRight") show(idx + (currentLang() === "fa" ? -1 : 1));
+      if (e.key === "ArrowLeft") show(idx + (currentLang() === "fa" ? 1 : -1));
     });
   </script>
 </body>
