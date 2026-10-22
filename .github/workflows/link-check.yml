@@ -34,6 +34,9 @@ jobs:
             text = html.read_text(encoding="utf-8", errors="ignore")
             refs = re.findall(r'(?:href|src)=["\']([^"\'#]+)["\']', text, flags=re.I)
             for ref in refs:
+              # Template expressions (${...}) are filled in by script, not files.
+              if "${" in ref:
+                continue
               if ref.startswith(("http://", "https://", "mailto:", "data:", "//")):
                 continue
               target = (html.parent / ref).resolve()
